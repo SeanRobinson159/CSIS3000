@@ -147,3 +147,14 @@ java.net.UnknownHostException: download.codetrails.com
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_25]
 	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_25]
 2015-01-07 14:46:34,937 [main] WARN  o.e.r.i.c.rcp.TypeBindingAnalyzer - Can't handle class org.eclipse.jdt.internal.compiler.ast.ArrayReference as parent of completion location.
+2015-01-07 14:50:17,214 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is shutting down
+2015-01-07 14:50:17,216 [main] INFO  o.a.c.impl.DefaultShutdownStrategy - Starting to graceful shutdown 6 routes (timeout 300 seconds)
+2015-01-07 14:50:19,463 [Camel (camel-1) thread #23 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route6 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]
+2015-01-07 14:50:19,463 [Camel (camel-1) thread #23 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route5 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
+2015-01-07 14:50:19,464 [Camel (camel-1) thread #23 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route4 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ctor?waitForTaskToComplete=Never]
+2015-01-07 14:50:19,464 [Camel (camel-1) thread #23 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route3 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ctor]
+2015-01-07 14:50:19,464 [Camel (camel-1) thread #23 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route2 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-01-07 14:50:19,465 [Camel (camel-1) thread #23 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route1 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
+2015-01-07 14:50:19,465 [main] INFO  o.a.c.impl.DefaultShutdownStrategy - Graceful shutdown of 6 routes completed in 2 seconds
+2015-01-07 14:50:19,477 [main] INFO  o.a.c.i.c.DefaultTypeConverter - TypeConverterRegistry utilization[attempts=79, hits=70, misses=9, failures=0] mappings[total=193, misses=2]
+2015-01-07 14:50:19,478 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is shutdown in 2.264 seconds. Uptime 2 days.
