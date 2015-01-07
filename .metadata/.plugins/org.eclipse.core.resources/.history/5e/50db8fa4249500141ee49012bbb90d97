@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class week1_1 {
+
+	public static void main(String[] args) {
+		String[] setA = new String[10];
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please input setA (seperated by commas)");
+		setA = input.nextLine().split(",");
+
+		System.out.print("You inputed the set {");
+		for (int i = 0; i < setA.length; i++) {
+			System.out.print(setA[i] + ",");
+		}
+		System.out.println("}");
+		input.close();
+	}
+}

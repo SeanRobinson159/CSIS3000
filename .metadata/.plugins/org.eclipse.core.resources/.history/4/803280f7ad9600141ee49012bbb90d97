@@ -1,0 +1,21 @@
+// Using a BitSet to demonstrate the Sieve of Erotosthenes
+
+import java.util.*;
+
+public class Eratosthenes {
+	public static void main(String[] args) {
+		BitSet sieve = new BitSet(1024){
+			ArrayList<Integer> primes = new ArrayList<Integer>();
+			int size = sieve.size();
+			int last = (int)Math.sqrt(size);
+			
+			for(int i = 0; i < size; i++){
+				sieve.set(i,true);
+			}
+			
+			
+			
+		}
+		
+	}
+}

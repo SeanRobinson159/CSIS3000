@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>jre</groupId>
+  <artifactId>jre</artifactId>
+  <version>0.0.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20150107.201733</timestamp>
+      <buildNumber>7108</buildNumber>
+    </snapshot>
+    <lastUpdated>20150107201733</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <classifier>ovrd-freq</classifier>
+        <extension>zip</extension>
+        <value>0.0.0-20150107.201733-7108</value>
+        <updated>20150107201733</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>ctor-freq</classifier>
+        <extension>zip</extension>
+        <value>0.0.0-20150107.201548-7107</value>
+        <updated>20150107201548</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>freq</classifier>
+        <extension>zip</extension>
+        <value>0.0.0-20150107.201124-7106</value>
+        <updated>20150107201124</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
