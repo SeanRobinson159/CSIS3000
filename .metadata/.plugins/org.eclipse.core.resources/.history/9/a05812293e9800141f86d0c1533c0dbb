@@ -1,0 +1,18 @@
+// An int version of GCD
+
+public class gcd {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	public static int euclid (int n, int m) {
+		if(m == 0){
+			return n;
+		}
+		else {
+			return euclid(m, n%m);
+		}
+	}
+
+}
