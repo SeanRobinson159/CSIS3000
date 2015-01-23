@@ -1,0 +1,11 @@
+
+//Write a method that, given positive integer n prints all the primes less than or equal to n.
+
+public class week1_2 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

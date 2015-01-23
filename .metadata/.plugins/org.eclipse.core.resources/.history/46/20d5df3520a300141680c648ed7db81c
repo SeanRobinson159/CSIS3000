@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+
+//Write a method that, given positive integer n prints all the primes less than or equal to n.
+
+public class week1_2 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the number in which you would like to see primes that are less than or equal to.");
+		int topNumber = input.nextInt();
+		for(int i = 0; i <= topNumber; i++){
+			if(isPrime(i))
+				System.out.println(i);
+		}
+		
+
+	}
+	public static boolean isPrime(int num) {
+	    if (num%2==0) return false;
+	    for(int i=3;i*i<=num;i+=2) {
+	        if(num%i==0)
+	            return false;
+	    }
+	    return true;
+	}
+
+}

@@ -5,28 +5,28 @@
   <version>0.0.0-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20150109.202645</timestamp>
-      <buildNumber>7156</buildNumber>
+      <timestamp>20150123.141958</timestamp>
+      <buildNumber>7480</buildNumber>
     </snapshot>
-    <lastUpdated>20150109202645</lastUpdated>
+    <lastUpdated>20150123141958</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <classifier>ovrd-freq</classifier>
         <extension>zip</extension>
-        <value>0.0.0-20150109.202645-7156</value>
-        <updated>20150109202645</updated>
+        <value>0.0.0-20150123.141958-7480</value>
+        <updated>20150123141958</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>ctor-freq</classifier>
         <extension>zip</extension>
-        <value>0.0.0-20150109.202458-7155</value>
-        <updated>20150109202458</updated>
+        <value>0.0.0-20150123.141803-7479</value>
+        <updated>20150123141803</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>freq</classifier>
         <extension>zip</extension>
-        <value>0.0.0-20150109.202021-7154</value>
-        <updated>20150109202021</updated>
+        <value>0.0.0-20150123.141341-7478</value>
+        <updated>20150123141341</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
