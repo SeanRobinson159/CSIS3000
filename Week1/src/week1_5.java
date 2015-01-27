@@ -11,13 +11,13 @@ public class week1_5 {
 	}
 
 	public static void test() {
-		byte[] array = new byte[64];
-		Random r = new Random();
-		r.nextBytes(array);
-		BigInteger randomBigNumber = new BigInteger(array);
-		randomBigNumber = randomBigNumber.abs();
-		System.out.println("The GCD of 512 and " + randomBigNumber + " is: ");
-		System.out.println(euclid(new BigInteger("512"), randomBigNumber));
+		BigInteger randomBigNumber1 = getRandom();
+		BigInteger randomBigNumber2 = getRandom();
+		randomBigNumber1 = randomBigNumber1.abs();
+		randomBigNumber2 = randomBigNumber2.abs();
+		
+		System.out.println("The GCD of "+randomBigNumber1+" and " + randomBigNumber2 + " is: ");
+		System.out.println(euclid(randomBigNumber1, randomBigNumber2));
 	}
 
 	public static BigInteger euclid(BigInteger n, BigInteger m) {
@@ -26,6 +26,14 @@ public class week1_5 {
 		} else {
 			return euclid(m.abs(), n.abs().mod(m.abs()));
 		}
+	}
+	
+	public static BigInteger getRandom(){
+		byte[] array = new byte[64];
+		Random r = new Random();
+		r.nextBytes(array);
+		BigInteger randomBigNumber = new BigInteger(array);
+		return randomBigNumber;
 	}
 
 }

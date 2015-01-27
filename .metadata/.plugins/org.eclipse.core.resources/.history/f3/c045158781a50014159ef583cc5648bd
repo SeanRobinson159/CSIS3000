@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class week1_1 {
+	//public static String[] setA = new String[10];
+	int setA = 0;
+	
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please input setA (seperated by commas)");
+		int setA = Integer.parseInt(input.nextLine());
+
+		for (int i = 0; i < Math.pow(2, setA); i++) {
+			int[] iBinary = toBinary(i);
+			System.out.print("{");
+			for (int j = iBinary.length - 1; j > -1; j--) {
+				if (iBinary[j] == 1) {
+					System.out.print(setA + ",");
+				}
+			}
+			System.out.println("}");
+		}
+		input.close();
+	}
+
+	public static int[] toBinary(int a) {
+		int binary[] = new int[setA];
+		int index = 0;
+		while (a > 0) {
+			binary[index++] = a % 2;
+			a = a / 2;
+		}
+		return binary;
+
+	}
+}

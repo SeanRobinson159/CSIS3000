@@ -1117,3 +1117,9 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2015-01-24 23:00:26.388
+!MESSAGE Failed delivery for (MessageId: ID-SeanAir-60798-1422150033921-0-6 on ExchangeId: ID-SeanAir-60798-1422150033921-0-8). Exhausted after delivery attempt: 1 caught: java.net.UnknownHostException: download.codetrails.com
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-01-24 23:00:26.401
+!MESSAGE Error processing aggregated exchange. Exchange[Message: [b9981785-aca6-4c01-9f01-d01971af8e36, 846d51e3-dd27-40c3-9ff3-8bb65f966f5c, fe743dcc-e992-4763-9dc7-c412b9161508, b7113d6b-c7a2-40d5-a84d-d14e52dbcc15, 5103949d-1338-46df-bd32-66a09f5fdba7]]. Caused by: [java.net.UnknownHostException - download.codetrails.com]
