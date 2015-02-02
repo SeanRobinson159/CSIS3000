@@ -1,0 +1,15 @@
+import java.math.*;
+import java.util.*;
+
+public class BigIntegerTest {
+
+	public static void main(String[] args) {
+		Random r = new Random();
+		
+		BigInteger a= new BigInteger(8, r);
+		BigInteger b= new BigInteger(8, r);
+		BigInteger n= new BigInteger(8, r);
+		
+	}
+
+}

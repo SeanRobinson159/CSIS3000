@@ -1,0 +1,13 @@
+import java.math.BigInteger;
+import java.util.Random;
+
+
+public class week4_5 {
+
+	public static void main(String[] args) {
+		BigInteger p = new BigInteger(512, 1, new Random());
+		System.out.println(p.isProbablePrime(2));
+
+	}
+
+}

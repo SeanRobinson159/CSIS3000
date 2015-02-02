@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Fri Jan 30 20:23:59 MST 2015
+http\://download.codetrails.com/models/freq/v2/.error=Could not transfer artifact jre\:jre\:zip\:ctor-freq\:0.0.0-20150130.201714-7628 from/to models (http\://download.codetrails.com/models/freq/v2)\: Read timed out
+@default-models-http\://download.codetrails.com/models/freq/v2/.lastUpdated=1422674639060

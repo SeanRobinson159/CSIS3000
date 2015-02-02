@@ -1,0 +1,23 @@
+import java.math.BigInteger;
+import java.util.Random;
+
+
+public class week4_5 {
+
+	public static void main(String[] args) {
+		BigInteger p = new BigInteger(512, 1, new Random());
+		BigInteger a = new BigInteger(512, new Random());
+		BigInteger b = new BigInteger(512, new Random());
+		BigInteger n = new BigInteger(512, new Random());
+
+		System.out.println("Probable Prime? "+p.isProbablePrime(1));
+		System.out.println(a.toString()+"\nProbable Prime? "+a.isProbablePrime(1));
+		System.out.println(b.toString()+"\nProbable Prime? "+b.isProbablePrime(1));
+		System.out.println(n.toString()+"\nProbable Prime? "+n.isProbablePrime(1));
+		
+		System.out.println("a+b="+a.add(b));
+	}
+	
+	public static BigInteger
+
+}
