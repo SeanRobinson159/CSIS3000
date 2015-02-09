@@ -824,3 +824,18 @@ java.net.UnknownHostException: download.codetrails.com
 2015-02-06 13:20:23,721 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route5 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
 2015-02-06 13:20:23,742 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
 2015-02-06 13:20:23,768 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route6 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]
+2015-02-09 13:16:04,806 [main] INFO  o.a.c.i.c.DefaultTypeConverter - Loaded 182 type converters
+2015-02-09 13:16:04,828 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is starting
+2015-02-09 13:16:04,946 [main] INFO  o.a.c.m.ManagementStrategyFactory - JMX enabled.
+2015-02-09 13:16:05,034 [main] INFO  o.a.c.m.DefaultManagementLifecycleStrategy - StatisticsLevel at All so enabling load performance statistics
+2015-02-09 13:16:05,051 [main] INFO  o.a.camel.impl.DefaultCamelContext - Total 0 routes, of which 0 is started.
+2015-02-09 13:16:05,053 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) started in 0.224 seconds
+2015-02-09 13:16:06,626 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route1 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ctor]
+2015-02-09 13:16:06,753 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-09 13:16:06,794 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route2 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ctor?waitForTaskToComplete=Never]
+2015-02-09 13:16:06,839 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route3 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
+2015-02-09 13:16:06,871 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-09 13:16:06,919 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route4 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-02-09 13:16:06,965 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route5 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
+2015-02-09 13:16:06,990 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-09 13:16:07,015 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route6 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]
