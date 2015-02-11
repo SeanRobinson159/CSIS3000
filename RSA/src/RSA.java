@@ -37,6 +37,14 @@ public class RSA {
 		e = p.nextProbablePrime();
 		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 	}
+	
+	public RSA(BigInteger e, BigInteger phi){
+		p = BigInteger.probablePrime(500, new Random());
+		q = BigInteger.probablePrime(500, new Random());
+		n = p.multiply(q);
+		this.e = e;
+		this.phi = phi;
+	}
 
 	public String encipher(BigInteger c) {
 		return c.modPow(e, n).toString();
