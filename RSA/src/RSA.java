@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class RSA {
 
 	private BigInteger p, q, n, phi, e;
+	private boolean firstLetterIsLowercase;
 
 	public static void main(String[] args) {
 		RSA rsa = new RSA();
 		Scanner input = new Scanner(System.in);
-		
+
 		System.out
 				.println("Type a message that you would like to encode. (It must start with a lowercase letter");
 		String message = input.nextLine();
@@ -37,8 +38,8 @@ public class RSA {
 		e = p.nextProbablePrime();
 		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 	}
-	
-	public RSA(BigInteger e, BigInteger phi){
+
+	public RSA(BigInteger e, BigInteger phi) {
 		p = BigInteger.probablePrime(500, new Random());
 		q = BigInteger.probablePrime(500, new Random());
 		n = p.multiply(q);
@@ -51,6 +52,9 @@ public class RSA {
 	}
 
 	public String decipher(BigInteger code) {
+		if (firstLetterIsLowercase) {
+			return "0" + code.modPow(e.modInverse(phi), n).toString();
+		}
 		return code.modPow(e.modInverse(phi), n).toString();
 	}
 
@@ -86,6 +90,9 @@ public class RSA {
 		}
 		while (code.length() < 300) {
 			code += "0";
+		}
+		if (code.charAt(0) == ('0')) {
+			firstLetterIsLowercase = true;
 		}
 		return code;
 	}

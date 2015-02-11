@@ -1,26 +1,8 @@
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-
-import java.awt.Color;
-import java.awt.Toolkit;
-
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-
-import java.awt.Font;
-
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 import java.math.BigInteger;
-import javax.swing.JTextPane;
-import javax.swing.JTextArea;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+
 
 public class GUI {
 
@@ -68,17 +50,17 @@ public class GUI {
 		JLabel lblInput = new JLabel("Input Text");
 		lblInput.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInput.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblInput.setBounds(10, 33, 375, 36);
+		lblInput.setBounds(10, 33, 350, 36);
 		frmSeansRsaEncryption.getContentPane().add(lblInput);
 
 		JTextArea inputTextField = new JTextArea();
-		inputTextField.setBounds(10, 75, 375, 150);
+		inputTextField.setBounds(10, 75, 350, 150);
 		frmSeansRsaEncryption.getContentPane().add(inputTextField);
 
 		JTextArea outputTextField = new JTextArea();
 		outputTextField.setBackground(Color.WHITE);
 		outputTextField.setEditable(false);
-		outputTextField.setBounds(475, 75, 400, 150);
+		outputTextField.setBounds(525, 75, 350, 150);
 		frmSeansRsaEncryption.getContentPane().add(outputTextField);
 		outputTextField.setColumns(10);
 		outputTextField.setText("This is where the message will appear");
@@ -86,7 +68,7 @@ public class GUI {
 		JLabel lblOutputText = new JLabel("Output Text");
 		lblOutputText.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOutputText.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblOutputText.setBounds(475, 33, 375, 36);
+		lblOutputText.setBounds(525, 33, 350, 36);
 		frmSeansRsaEncryption.getContentPane().add(lblOutputText);
 
 		JButton btnEncrypt = new JButton("Encrypt");
@@ -102,6 +84,7 @@ public class GUI {
 				System.out.println(blocks);
 				String code2 = rsa.encipher(new BigInteger(blocks));
 				System.out.println(code2);
+				tf_rsa.setText(code2);
 
 				String decipheredCode2 = rsa.decipher(new BigInteger(code2));
 				System.out.println(decipheredCode2);
@@ -110,13 +93,24 @@ public class GUI {
 				outputTextField.setText(rsa.valueToAscii(decipheredCode2));
 			}
 		});
-		btnEncrypt.setBounds(393, 75, 75, 150);
+		btnEncrypt.setBounds(392, 75, 100, 150);
 		frmSeansRsaEncryption.getContentPane().add(btnEncrypt);
 		
 		tf_rsa = new JTextField();
+		tf_rsa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				RSA rsa = new RSA();
+				String decipheredCode2 = rsa.decipher(new BigInteger(tf_rsa.getText()));
+				outputTextField.setText(rsa.valueToAscii(decipheredCode2));
+			}
+		});
 		tf_rsa.setBounds(10, 267, 865, 36);
 		frmSeansRsaEncryption.getContentPane().add(tf_rsa);
 		tf_rsa.setColumns(10);
+		
+		JLabel label = new JLabel("New label");
+		label.setBounds(10, 253, 200, 50);
+		frmSeansRsaEncryption.getContentPane().add(label);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmSeansRsaEncryption.setJMenuBar(menuBar);
