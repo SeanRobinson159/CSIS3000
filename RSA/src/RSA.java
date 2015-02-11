@@ -6,45 +6,44 @@ public class RSA {
 
 	private BigInteger p, q, n, phi, e;
 	private boolean firstLetterIsLowercase;
+	private final int BITLENGTH = 500;
 
 	public static void main(String[] args) {
-		RSA rsa = new RSA();
 		Scanner input = new Scanner(System.in);
+		RSA rsa = new RSA();
+		rsa.printStart();
 
-		System.out
-				.println("Type a message that you would like to encode. (It must start with a lowercase letter");
+		System.out.println("Type a message that you would like to encode.");
 		String message = input.nextLine();
 
-		String ascii = rsa.toascii(message);
+		String plainText = rsa.toascii(message);
+		System.out.println("PlainText:\t"+plainText);
 
-		String blocks = rsa.breakIntoBlocks(ascii);
+		String encipheredCode = rsa.encipher(new BigInteger(plainText));
+		System.out.println("EncipheredCode: "+encipheredCode);
 
-		System.out.println(blocks);
-		String code2 = rsa.encipher(new BigInteger(blocks));
-		System.out.println(code2);
+		String decipheredPlainText = rsa.decipher(new BigInteger(encipheredCode));
+		System.out.println("DecipheredText: "+decipheredPlainText);
 
-		String decipheredCode2 = rsa.decipher(new BigInteger(code2));
-		System.out.println(decipheredCode2);
-
-		System.out.println(rsa.valueToAscii(decipheredCode2));
+		System.out.println(rsa.valueToAscii(decipheredPlainText));
 
 		input.close();
 	}
 
 	public RSA() {
-		p = BigInteger.probablePrime(500, new Random());
-		q = BigInteger.probablePrime(500, new Random());
+		p = BigInteger.probablePrime(BITLENGTH, new Random());
+		q = BigInteger.probablePrime(BITLENGTH, new Random());
 		n = p.multiply(q);
 		e = p.nextProbablePrime();
 		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 	}
 
-	public RSA(BigInteger publicKey, BigInteger privateKey) {
-		p = BigInteger.probablePrime(50, new Random());
-		q = BigInteger.probablePrime(50, new Random());
-		n = p.multiply(q);
-//		this.e = e;
-//		this.phi = phi;
+	public RSA(BigInteger publicKeyE, BigInteger publicKeyN) {
+		p = BigInteger.probablePrime(BITLENGTH, new Random());
+		q = BigInteger.probablePrime(BITLENGTH, new Random());
+		n = publicKeyN;
+		e = publicKeyE;
+		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 	}
 
 	public String encipher(BigInteger c) {

@@ -85,7 +85,7 @@ public class GUI {
 				System.out.println(blocks);
 				String code2 = rsa.encipher(new BigInteger(blocks));
 				System.out.println(code2);
-				tf_rsa.setText(rsa.valueToAscii(code2));
+				tf_rsa.setText(code2);
 
 				String decipheredCode2 = rsa.decipher(new BigInteger(code2));
 				System.out.println(decipheredCode2);
