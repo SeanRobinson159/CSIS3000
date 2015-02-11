@@ -8,6 +8,7 @@ public class GUI {
 
 	private JFrame frmSeansRsaEncryption;
 	private JTextField tf_rsa;
+	private JTextField tf_publicKey;
 
 	/**
 	 * Launch the application.
@@ -84,7 +85,7 @@ public class GUI {
 				System.out.println(blocks);
 				String code2 = rsa.encipher(new BigInteger(blocks));
 				System.out.println(code2);
-				tf_rsa.setText(code2);
+				tf_rsa.setText(rsa.valueToAscii(code2));
 
 				String decipheredCode2 = rsa.decipher(new BigInteger(code2));
 				System.out.println(decipheredCode2);
@@ -104,13 +105,23 @@ public class GUI {
 				outputTextField.setText(rsa.valueToAscii(decipheredCode2));
 			}
 		});
-		tf_rsa.setBounds(10, 267, 865, 36);
+		tf_rsa.setBounds(10, 267, 865, 40);
 		frmSeansRsaEncryption.getContentPane().add(tf_rsa);
 		tf_rsa.setColumns(10);
 		
-		JLabel label = new JLabel("New label");
-		label.setBounds(10, 253, 200, 50);
-		frmSeansRsaEncryption.getContentPane().add(label);
+		JLabel lblCiphertext = new JLabel("CipherText");
+		lblCiphertext.setBounds(10, 239, 100, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblCiphertext);
+		
+		tf_publicKey = new JTextField();
+		tf_publicKey.setEditable(false);
+		tf_publicKey.setBounds(10, 358, 865, 40);
+		frmSeansRsaEncryption.getContentPane().add(tf_publicKey);
+		tf_publicKey.setColumns(10);
+		
+		JLabel lblPublicKey = new JLabel("Public Key");
+		lblPublicKey.setBounds(10, 330, 203, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblPublicKey);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmSeansRsaEncryption.setJMenuBar(menuBar);
@@ -122,6 +133,11 @@ public class GUI {
 		m_file.add(mi_saveOutput);
 		
 		JMenuItem mi_exit = new JMenuItem("Exit");
+		mi_exit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		m_file.add(mi_exit);
 		
 		JMenu m_edit = new JMenu("Edit");

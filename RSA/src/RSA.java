@@ -39,12 +39,12 @@ public class RSA {
 		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 	}
 
-	public RSA(BigInteger e, BigInteger phi) {
-		p = BigInteger.probablePrime(500, new Random());
-		q = BigInteger.probablePrime(500, new Random());
+	public RSA(BigInteger publicKey, BigInteger privateKey) {
+		p = BigInteger.probablePrime(50, new Random());
+		q = BigInteger.probablePrime(50, new Random());
 		n = p.multiply(q);
-		this.e = e;
-		this.phi = phi;
+//		this.e = e;
+//		this.phi = phi;
 	}
 
 	public String encipher(BigInteger c) {
