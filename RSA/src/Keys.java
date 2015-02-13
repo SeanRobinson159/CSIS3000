@@ -10,6 +10,7 @@ public class Keys {
 
 	public String decipher(BigInteger code) {
 		if (firstLetterIsLowercase) {
+			firstLetterIsLowercase = false;
 			return "0" + code.modPow(inverse, n).toString();
 		}
 		return code.modPow(inverse, n).toString();
