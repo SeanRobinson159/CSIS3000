@@ -1048,3 +1048,212 @@ java.net.UnknownHostException: download.codetrails.com
 2015-02-11 15:22:04,315 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route5 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
 2015-02-11 15:22:04,338 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
 2015-02-11 15:22:04,362 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route6 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-02-13 12:31:33,992 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is shutting down
+2015-02-13 12:31:33,999 [main] INFO  o.a.c.impl.DefaultShutdownStrategy - Starting to graceful shutdown 6 routes (timeout 300 seconds)
+2015-02-13 12:31:36,646 [Camel (camel-1) thread #22 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route6 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-02-13 12:31:36,648 [Camel (camel-1) thread #22 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route5 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
+2015-02-13 12:31:36,649 [Camel (camel-1) thread #22 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route4 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ctor?waitForTaskToComplete=Never]
+2015-02-13 12:31:36,649 [Camel (camel-1) thread #22 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route3 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ctor]
+2015-02-13 12:31:36,650 [Camel (camel-1) thread #22 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route2 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]
+2015-02-13 12:31:36,650 [Camel (camel-1) thread #22 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route1 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
+2015-02-13 12:31:37,543 [Camel (camel-1) thread #22 - ShutdownTask] INFO  o.a.c.p.a.AggregateProcessor - Forcing completion of all groups with 1 exchanges completed in 0.000 seconds
+2015-02-13 12:31:37,544 [main] INFO  o.a.c.impl.DefaultShutdownStrategy - Graceful shutdown of 6 routes completed in 3 seconds
+2015-02-13 12:31:37,565 [main] INFO  o.a.c.i.c.DefaultTypeConverter - TypeConverterRegistry utilization[attempts=48, hits=43, misses=5, failures=0] mappings[total=193, misses=2]
+2015-02-13 12:31:37,568 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is shutdown in 3.575 seconds. Uptime 1 day 21 hours.
+2015-02-13 12:41:33,779 [main] INFO  o.a.c.i.c.DefaultTypeConverter - Loaded 182 type converters
+2015-02-13 12:41:33,799 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is starting
+2015-02-13 12:41:33,950 [main] INFO  o.a.c.m.ManagementStrategyFactory - JMX enabled.
+2015-02-13 12:41:34,047 [main] INFO  o.a.c.m.DefaultManagementLifecycleStrategy - StatisticsLevel at All so enabling load performance statistics
+2015-02-13 12:41:34,066 [main] INFO  o.a.camel.impl.DefaultCamelContext - Total 0 routes, of which 0 is started.
+2015-02-13 12:41:34,068 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) started in 0.267 seconds
+2015-02-13 12:41:35,659 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route1 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ctor]
+2015-02-13 12:41:35,724 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 12:41:35,766 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route2 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ctor?waitForTaskToComplete=Never]
+2015-02-13 12:41:35,813 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route3 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
+2015-02-13 12:41:35,837 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 12:41:35,870 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route4 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]
+2015-02-13 12:41:35,913 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route5 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
+2015-02-13 12:41:35,944 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 12:41:35,978 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route6 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-02-13 12:58:06,766 [Camel (camel-1) thread #5 - AggregateTimeoutChecker] ERROR o.a.c.processor.DefaultErrorHandler - Failed delivery for (MessageId: ID-SeanAir-56192-1423856493542-0-6 on ExchangeId: ID-SeanAir-56192-1423856493542-0-8). Exhausted after delivery attempt: 1 caught: java.net.UnknownHostException: download.codetrails.com
+java.net.UnknownHostException: download.codetrails.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[na:1.8.0_25]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_25]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_25]
+	at java.net.Socket.connect(Socket.java:538) ~[na:1.8.0_25]
+	at java.net.Socket.<init>(Socket.java:434) ~[na:1.8.0_25]
+	at java.net.Socket.<init>(Socket.java:286) ~[na:1.8.0_25]
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80) ~[na:na]
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:122) ~[na:na]
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:323) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.camel.component.http.HttpProducer.executeMethod(HttpProducer.java:243) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.component.http.HttpProducer.process(HttpProducer.java:145) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorConverterHelper$ProcessorToAsyncProcessorBridge.process(AsyncProcessorConverterHelper.java:61) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.SendProcessor$2.doInAsyncProducer(SendProcessor.java:122) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.impl.ProducerCache.doInAsyncProducer(ProducerCache.java:298) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:117) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.processNext(DelegateAsyncProcessor.java:99) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:90) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:73) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.processNext(DelegateAsyncProcessor.java:99) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:90) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.interceptor.TraceInterceptor.process(TraceInterceptor.java:91) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.RedeliveryErrorHandler.processErrorHandler(RedeliveryErrorHandler.java:334) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:220) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.RouteContextProcessor.processNext(RouteContextProcessor.java:45) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:90) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.interceptor.DefaultChannel.process(DefaultChannel.java:303) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:117) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:80) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.RouteContextProcessor.processNext(RouteContextProcessor.java:45) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:90) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.UnitOfWorkProcessor.processAsync(UnitOfWorkProcessor.java:150) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.UnitOfWorkProcessor.process(UnitOfWorkProcessor.java:117) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:99) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:86) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor$1.run(AggregateProcessor.java:425) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_25]
+	at org.apache.camel.util.concurrent.SynchronousExecutorService.execute(SynchronousExecutorService.java:62) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:112) [na:1.8.0_25]
+	at org.apache.camel.processor.aggregate.AggregateProcessor.onSubmitCompletion(AggregateProcessor.java:417) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor.onCompletion(AggregateProcessor.java:401) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor$AggregationTimeoutMap.onEviction(AggregateProcessor.java:692) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor$AggregationTimeoutMap.onEviction(AggregateProcessor.java:659) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.support.DefaultTimeoutMap.purge(DefaultTimeoutMap.java:203) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor$AggregationTimeoutMap.purge(AggregateProcessor.java:671) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.support.DefaultTimeoutMap.run(DefaultTimeoutMap.java:159) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_25]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [na:1.8.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [na:1.8.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_25]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_25]
+2015-02-13 12:58:06,776 [Camel (camel-1) thread #5 - AggregateTimeoutChecker] WARN  o.a.c.p.a.AggregateProcessor - Error processing aggregated exchange. Exchange[Message: [2f1a48d0-58f3-41bf-a064-c75b85c7f964]]. Caused by: [java.net.UnknownHostException - download.codetrails.com]
+java.net.UnknownHostException: download.codetrails.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184) ~[na:1.8.0_25]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_25]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_25]
+	at java.net.Socket.connect(Socket.java:538) ~[na:1.8.0_25]
+	at java.net.Socket.<init>(Socket.java:434) ~[na:1.8.0_25]
+	at java.net.Socket.<init>(Socket.java:286) ~[na:1.8.0_25]
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80) ~[na:na]
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:122) ~[na:na]
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:323) ~[org.apache.commons.httpclient_3.1.0.v201012070820.jar:na]
+	at org.apache.camel.component.http.HttpProducer.executeMethod(HttpProducer.java:243) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.component.http.HttpProducer.process(HttpProducer.java:145) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorConverterHelper$ProcessorToAsyncProcessorBridge.process(AsyncProcessorConverterHelper.java:61) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.SendProcessor$2.doInAsyncProducer(SendProcessor.java:122) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.impl.ProducerCache.doInAsyncProducer(ProducerCache.java:298) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:117) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.processNext(DelegateAsyncProcessor.java:99) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:90) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:73) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.processNext(DelegateAsyncProcessor.java:99) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:90) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.interceptor.TraceInterceptor.process(TraceInterceptor.java:91) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.RedeliveryErrorHandler.processErrorHandler(RedeliveryErrorHandler.java:334) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:220) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.RouteContextProcessor.processNext(RouteContextProcessor.java:45) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:90) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.interceptor.DefaultChannel.process(DefaultChannel.java:303) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:73) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:117) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:80) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.RouteContextProcessor.processNext(RouteContextProcessor.java:45) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:90) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.UnitOfWorkProcessor.processAsync(UnitOfWorkProcessor.java:150) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.UnitOfWorkProcessor.process(UnitOfWorkProcessor.java:117) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:99) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:86) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor$1.run(AggregateProcessor.java:425) ~[com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_25]
+	at org.apache.camel.util.concurrent.SynchronousExecutorService.execute(SynchronousExecutorService.java:62) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:112) [na:1.8.0_25]
+	at org.apache.camel.processor.aggregate.AggregateProcessor.onSubmitCompletion(AggregateProcessor.java:417) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor.onCompletion(AggregateProcessor.java:401) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor$AggregationTimeoutMap.onEviction(AggregateProcessor.java:692) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor$AggregationTimeoutMap.onEviction(AggregateProcessor.java:659) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.support.DefaultTimeoutMap.purge(DefaultTimeoutMap.java:203) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.processor.aggregate.AggregateProcessor$AggregationTimeoutMap.purge(AggregateProcessor.java:671) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at org.apache.camel.support.DefaultTimeoutMap.run(DefaultTimeoutMap.java:159) [com.codetrails.camel_2.10.2.v20140305-1000.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_25]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [na:1.8.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [na:1.8.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_25]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_25]
+2015-02-13 13:03:44,273 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is shutting down
+2015-02-13 13:03:44,274 [main] INFO  o.a.c.impl.DefaultShutdownStrategy - Starting to graceful shutdown 6 routes (timeout 300 seconds)
+2015-02-13 13:03:46,960 [Camel (camel-1) thread #10 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route6 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-02-13 13:03:46,960 [Camel (camel-1) thread #10 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route5 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
+2015-02-13 13:03:46,962 [Camel (camel-1) thread #10 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route4 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]
+2015-02-13 13:03:46,962 [Camel (camel-1) thread #10 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route3 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
+2015-02-13 13:03:46,963 [Camel (camel-1) thread #10 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route2 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ctor?waitForTaskToComplete=Never]
+2015-02-13 13:03:46,963 [Camel (camel-1) thread #10 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route1 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ctor]
+2015-02-13 13:03:46,964 [main] INFO  o.a.c.impl.DefaultShutdownStrategy - Graceful shutdown of 6 routes completed in 2 seconds
+2015-02-13 13:03:46,976 [main] INFO  o.a.c.i.c.DefaultTypeConverter - TypeConverterRegistry utilization[attempts=24, hits=21, misses=3, failures=0] mappings[total=193, misses=2]
+2015-02-13 13:03:46,979 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is shutdown in 2.705 seconds. Uptime 22 minutes.
+2015-02-13 13:06:33,014 [main] INFO  o.a.c.i.c.DefaultTypeConverter - Loaded 182 type converters
+2015-02-13 13:06:33,038 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is starting
+2015-02-13 13:06:33,199 [main] INFO  o.a.c.m.ManagementStrategyFactory - JMX enabled.
+2015-02-13 13:06:33,309 [main] INFO  o.a.c.m.DefaultManagementLifecycleStrategy - StatisticsLevel at All so enabling load performance statistics
+2015-02-13 13:06:33,326 [main] INFO  o.a.camel.impl.DefaultCamelContext - Total 0 routes, of which 0 is started.
+2015-02-13 13:06:33,327 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) started in 0.288 seconds
+2015-02-13 13:06:34,923 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route1 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ctor]
+2015-02-13 13:06:35,005 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 13:06:35,052 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route2 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ctor?waitForTaskToComplete=Never]
+2015-02-13 13:06:35,093 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route3 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
+2015-02-13 13:06:35,122 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 13:06:35,149 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route4 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-02-13 13:06:35,174 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route5 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
+2015-02-13 13:06:35,216 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 13:06:35,248 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route6 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]
+2015-02-13 13:34:33,045 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is shutting down
+2015-02-13 13:34:33,047 [main] INFO  o.a.c.impl.DefaultShutdownStrategy - Starting to graceful shutdown 6 routes (timeout 300 seconds)
+2015-02-13 13:34:35,161 [Camel (camel-1) thread #7 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route6 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]
+2015-02-13 13:34:35,162 [Camel (camel-1) thread #7 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route5 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
+2015-02-13 13:34:35,165 [Camel (camel-1) thread #7 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route4 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-02-13 13:34:35,166 [Camel (camel-1) thread #7 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route3 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
+2015-02-13 13:34:35,167 [Camel (camel-1) thread #7 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route2 shutdown complete, was consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ctor?waitForTaskToComplete=Never]
+2015-02-13 13:34:35,167 [Camel (camel-1) thread #7 - ShutdownTask] INFO  o.a.c.impl.DefaultShutdownStrategy - Route: route1 shutdown complete, was consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ctor]
+2015-02-13 13:34:35,168 [main] INFO  o.a.c.impl.DefaultShutdownStrategy - Graceful shutdown of 6 routes completed in 2 seconds
+2015-02-13 13:34:35,180 [main] INFO  o.a.c.i.c.DefaultTypeConverter - TypeConverterRegistry utilization[attempts=9, hits=9, misses=0, failures=0] mappings[total=190, misses=0]
+2015-02-13 13:34:35,183 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is shutdown in 2.137 seconds. Uptime 28 minutes.
+2015-02-13 13:35:46,939 [main] INFO  o.a.c.i.c.DefaultTypeConverter - Loaded 182 type converters
+2015-02-13 13:35:46,955 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) is starting
+2015-02-13 13:35:47,091 [main] INFO  o.a.c.m.ManagementStrategyFactory - JMX enabled.
+2015-02-13 13:35:47,182 [main] INFO  o.a.c.m.DefaultManagementLifecycleStrategy - StatisticsLevel at All so enabling load performance statistics
+2015-02-13 13:35:47,198 [main] INFO  o.a.camel.impl.DefaultCamelContext - Total 0 routes, of which 0 is started.
+2015-02-13 13:35:47,199 [main] INFO  o.a.camel.impl.DefaultCamelContext - Apache Camel 2.10.2 (CamelContext: camel-1) started in 0.243 seconds
+2015-02-13 13:35:48,569 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route1 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ctor]
+2015-02-13 13:35:48,651 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 13:35:48,683 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route2 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ctor?waitForTaskToComplete=Never]
+2015-02-13 13:35:48,975 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route3 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.call]
+2015-02-13 13:35:49,000 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 13:35:49,029 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route4 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.call?waitForTaskToComplete=Never]
+2015-02-13 13:35:49,063 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route5 started and consuming from: Endpoint[direct://com.codetrails.hippie.completion.rcp.ovrd]
+2015-02-13 13:35:49,084 [main] INFO  o.a.c.p.a.AggregateProcessor - Using CompletionTimeout to trigger after 0 millis of inactivity.
+2015-02-13 13:35:49,108 [main] INFO  o.a.camel.impl.DefaultCamelContext - Route: route6 started and consuming from: Endpoint[seda://com.codetrails.hippie.completion.rcp.ovrd?waitForTaskToComplete=Never]

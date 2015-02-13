@@ -9,7 +9,7 @@ import java.math.BigInteger;
 public class GUI {
 
 	private JFrame frmSeansRsaEncryption;
-	private JTextField tf_rsa;
+	private JTextField tf_cipherText;
 	private JTextField tf_publicKey;
 
 	/**
@@ -41,11 +41,12 @@ public class GUI {
 	 */
 	private void initialize(RSA rsa) {
 		frmSeansRsaEncryption = new JFrame();
+		frmSeansRsaEncryption.setResizable(false);
 		frmSeansRsaEncryption.setFont(new Font("Courier New", Font.PLAIN, 12));
 		frmSeansRsaEncryption.setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(GUI.class.getResource("/resources/rsa_icon.png")));
 		frmSeansRsaEncryption.setBackground(Color.BLACK);
-		frmSeansRsaEncryption.setTitle("Sean's RSA Encryption Application");
+		frmSeansRsaEncryption.setTitle("Sean's RSA Encryption");
 		frmSeansRsaEncryption.setForeground(Color.BLACK);
 		frmSeansRsaEncryption.setBounds(100, 100, 901, 600);
 		frmSeansRsaEncryption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,12 +83,15 @@ public class GUI {
 			public void actionPerformed(ActionEvent arg0){
 				
 				RSA rsa = new RSA();
-
+//				rsa.setPublicKeys(
+//						new BigInteger("9456750962127072769585718549316265157898951531315301421190683735979817687810014864024352447558177680749439661935793187654279723111326923407946392914521137"),
+//						new BigInteger("483808403721108656412115317213549575723229974266282278084269167175318688576193974107814829638070192101642661199430307505219696416382877573174635565156818475343257968360987390153659444745600879213115258967503965425212995329181500164641223665468828161351831583998225048729340992644875108566399337273197")
+//								);
 				String message = inputTextField.getText();
 				String plainText = rsa.toascii(message);
 
 				String cipherText = rsa.encipher(new BigInteger(plainText));
-				tf_rsa.setText(cipherText);
+				tf_cipherText.setText(cipherText);
 
 				String decipheredText = rsa.decipher(new BigInteger(cipherText));
 				outputTextField.setText(rsa.valueToAscii(decipheredText));
@@ -95,26 +99,33 @@ public class GUI {
 				
 			}
 		});
-		btnEncrypt.setBounds(392, 75, 100, 150);
+		btnEncrypt.setBounds(392, 75, 100, 63);
 		frmSeansRsaEncryption.getContentPane().add(btnEncrypt);
 		
-		tf_rsa = new JTextField();
-		tf_rsa.addActionListener(new ActionListener() {
+		tf_cipherText = new JTextField();
+		tf_cipherText.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				RSA rsa = new RSA();
-				String decipheredCode2 = rsa.decipher(new BigInteger(tf_rsa.getText()));
+				String decipheredCode2 = rsa.decipher(new BigInteger(tf_cipherText.getText()));
 				outputTextField.setText(rsa.valueToAscii(decipheredCode2));
 				
 			}
 		});
-		tf_rsa.setBounds(10, 267, 865, 40);
-		frmSeansRsaEncryption.getContentPane().add(tf_rsa);
-		tf_rsa.setColumns(10);
+		tf_cipherText.setBounds(10, 267, 865, 40);
+		frmSeansRsaEncryption.getContentPane().add(tf_cipherText);
+		tf_cipherText.setColumns(10);
 		
 		JLabel lblCiphertext = new JLabel("CipherText");
 		lblCiphertext.setBounds(10, 239, 100, 16);
 		frmSeansRsaEncryption.getContentPane().add(lblCiphertext);
+		
+		JScrollBar scrollBar_cipherText = new JScrollBar();
+		scrollBar_cipherText.setOrientation(JScrollBar.HORIZONTAL);
+		scrollBar_cipherText.setBounds(10, 304, 865, 16);
+		BoundedRangeModel brm = tf_cipherText.getHorizontalVisibility();
+		scrollBar_cipherText.setModel(brm);
+		frmSeansRsaEncryption.getContentPane().add(scrollBar_cipherText);
 		
 		tf_publicKey = new JTextField();
 		tf_publicKey.setEditable(false);
@@ -129,8 +140,8 @@ public class GUI {
 		JScrollBar scrollBar_publicKey = new JScrollBar();
 		scrollBar_publicKey.setOrientation(JScrollBar.HORIZONTAL);
 		scrollBar_publicKey.setBounds(10, 399, 865, 16);
-		 BoundedRangeModel brm = tf_publicKey.getHorizontalVisibility();
-		    scrollBar_publicKey.setModel(brm);
+		brm = tf_publicKey.getHorizontalVisibility();
+		scrollBar_publicKey.setModel(brm);
 		frmSeansRsaEncryption.getContentPane().add(scrollBar_publicKey);
 		
 		
@@ -164,7 +175,7 @@ public class GUI {
 		mntmGenerateNewKeys.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				rsa.generateNewKeys();
-				System.out.println(rsa.getE());
+				JOptionPane.showMessageDialog(null,"The new keys were generated successfully", "Generate New Keys",1);
 			}
 		});
 		m_edit.add(mntmGenerateNewKeys);
