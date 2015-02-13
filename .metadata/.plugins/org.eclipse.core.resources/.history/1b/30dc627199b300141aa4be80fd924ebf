@@ -110,16 +110,9 @@ public class GUI {
 		tf_rsa = new JTextField();
 		tf_rsa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				try {
-					RSA rsa = new RSA();
-					String decipheredCode2 = rsa.decipher(new BigInteger(tf_rsa.getText()));
-					outputTextField.setText(rsa.valueToAscii(decipheredCode2));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
+				RSA rsa = new RSA();
+				String decipheredCode2 = rsa.decipher(new BigInteger(tf_rsa.getText()));
+				outputTextField.setText(rsa.valueToAscii(decipheredCode2));
 			}
 		});
 		tf_rsa.setBounds(10, 267, 865, 40);

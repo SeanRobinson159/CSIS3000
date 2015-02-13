@@ -56,8 +56,7 @@ public class RSA {
 		e = p.nextProbablePrime();
 		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 		File file = new File("PublicKey.txt");
-		//TODO create the file with the public key info (e,n)
-		//TODO create another file with my private keys (inverse, n) I think
+		file.createNewFile();
 	}
 
 	public String encipher(BigInteger c) {
