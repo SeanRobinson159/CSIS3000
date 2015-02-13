@@ -1,130 +1,117 @@
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigInteger;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
-public class RSA {
+public class RSA extends Keys {
 
-	private BigInteger p, q, n, phi, e;
-	private boolean firstLetterIsLowercase;
 	private final int BITLENGTH = 500;
 
 	public static void main(String[] args) throws IOException {
 		Scanner input = new Scanner(System.in);
-		RSA rsa = new RSA();
-		rsa.printStart();
-
-		System.out.println("Type a message that you would like to encode.");
-		String message = input.nextLine();
-
-		String plainText = rsa.toascii(message);
-		System.out.println("PlainText:\t"+plainText);
-
-		String encipheredCode = rsa.encipher(new BigInteger(plainText));
-		System.out.println("EncipheredCode: "+encipheredCode);
-
-		String decipheredPlainText = rsa.decipher(new BigInteger(encipheredCode));
-		System.out.println("DecipheredText: "+decipheredPlainText);
-
-		System.out.println(rsa.valueToAscii(decipheredPlainText));
+		// System.out.println("Type a message that you would like to encode.");
+		// String message = input.nextLine();
+		String message = "Hello World";
+		// test1(message);
+		encipherWithPublicKey(message);
 
 		input.close();
 	}
 
-	public RSA() throws IOException {
-//		p = BigInteger.probablePrime(BITLENGTH, new Random());
-//		q = BigInteger.probablePrime(BITLENGTH, new Random());
-//		n = p.multiply(q);
-//		e = p.nextProbablePrime();
-//		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
-		generateKeys();
+	public static void test1(String message) {
+		RSA rsa = new RSA();
+		rsa.printStart();
+
+		String plainText = rsa.toascii(message);
+		System.out.println("PlainText:\t" + plainText);
+
+		String cipherText = rsa.encipher(new BigInteger(plainText));
+		System.out.println("CipherText: \t" + cipherText);
+
+		String decipheredText = rsa.decipher(new BigInteger(cipherText));
+		System.out.println("DecipheredText: " + decipheredText);
+
+		System.out.println(rsa.valueToAscii(decipheredText));
+	}
+
+	@SuppressWarnings("resource")
+	public static void encipherWithPublicKey(String message) {
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(
+					"PublicKey.txt"));
+			String[] publicKey = reader.readLine().split(",");
+
+			RSA rsa = new RSA(new BigInteger(publicKey[0].toString()),
+					new BigInteger(publicKey[1].toString()));
+
+			reader = new BufferedReader(new FileReader("PrivateKey.txt"));
+			String[] privateKey = reader.readLine().split(",");
+			rsa.setInverse(new BigInteger(privateKey[0].toString()));
+
+			rsa.printStart();
+			String plainText = rsa.toascii(message);
+			System.out.println("PlainText:\t" + plainText);
+
+			String cipherText = rsa.encipher(new BigInteger(plainText));
+			System.out.println("CipherText:\t" + cipherText);
+
+			String decipheredText = rsa.decipher(new BigInteger(cipherText));
+			System.out.println("DecipheredText: " + decipheredText);
+
+			reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public RSA() {
+		setP(BigInteger.probablePrime(BITLENGTH, new Random()));
+		setQ(BigInteger.probablePrime(BITLENGTH, new Random()));
+		setN(getP().multiply(getQ()));
+		setE(getP().nextProbablePrime());
+		setPhi(getP().subtract(BigInteger.ONE).multiply(
+				getQ().subtract(BigInteger.ONE)));
+		setInverse(getE().modInverse(getPhi()));
 	}
 
 	public RSA(BigInteger publicKeyE, BigInteger publicKeyN) {
-		p = BigInteger.probablePrime(BITLENGTH, new Random());
-		q = BigInteger.probablePrime(BITLENGTH, new Random());
-		n = publicKeyN;
-		e = publicKeyE;
-		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
-	}
-	
-	public void generateKeys() throws IOException{
-		p = BigInteger.probablePrime(BITLENGTH, new Random());
-		q = BigInteger.probablePrime(BITLENGTH, new Random());
-		n = p.multiply(q);
-		e = p.nextProbablePrime();
-		phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
-		File file = new File("PublicKey.txt");
-		//TODO create the file with the public key info (e,n)
-		//TODO create another file with my private keys (inverse, n) I think
+		setP(BigInteger.probablePrime(BITLENGTH, new Random()));
+		setQ(BigInteger.probablePrime(BITLENGTH, new Random()));
+		setN(publicKeyN);
+		setE(publicKeyE);
+		setPhi(getP().subtract(BigInteger.ONE).multiply(
+				getQ().subtract(BigInteger.ONE)));
+		setInverse(getE().modInverse(getPhi()));
 	}
 
-	public String encipher(BigInteger c) {
-		return c.modPow(e, n).toString();
+	public void keysToFile(BigInteger e, BigInteger inverse, BigInteger n) {
+
+		try {
+			FileWriter writer = new FileWriter(new File("PublicKey.txt"));
+			writer.write(e.toString() + "," + n.toString());
+			FileWriter writer2 = new FileWriter(new File("PrivateKey.txt"));
+			writer2.write(inverse.toString() + "," + n.toString());
+			writer.close();
+			writer2.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 	}
 
-	public String decipher(BigInteger code) {
-		if (firstLetterIsLowercase) {
-			return "0" + code.modPow(e.modInverse(phi), n).toString();
-		}
-		return code.modPow(e.modInverse(phi), n).toString();
+	public void generateNewKeys() {
+		setP(BigInteger.probablePrime(BITLENGTH, new Random()));
+		setQ(BigInteger.probablePrime(BITLENGTH, new Random()));
+		setN(getP().multiply(getQ()));
+		setE(getP().nextProbablePrime());
+		setPhi(getP().subtract(BigInteger.ONE).multiply(
+				getQ().subtract(BigInteger.ONE)));
+		setInverse(getE().modInverse(getPhi()));
+
+		keysToFile(getE(), getInverse(), getPhi());
 	}
 
-	public String valueToAscii(String decipheredCode) {
-		String decipheredText = "";
-		while (decipheredCode.length() >= 3) {
-			decipheredText += String.valueOf((char) Integer
-					.parseInt(decipheredCode.substring(0, 3)));
-			decipheredCode = decipheredCode.substring(3,
-					decipheredCode.length());
-		}
-		return decipheredText;
-	}
-
-	public String breakIntoBlocks(String ascii) {
-		String blocks = "";
-		while (ascii.length() >= 3) {
-			if (ascii.length() >= 3) {
-				blocks += ascii.substring(0, 3);
-				ascii = ascii.substring(3, ascii.length());
-			} else {
-				blocks += "000";
-			}
-		}
-		return blocks;
-	}
-
-	public String toascii(String s) {
-		char[] chars = s.toCharArray();
-		String code = "";
-		for (int i = 0; i < chars.length; i++) {
-			code += asciiToValue(chars[i]);
-		}
-		while (code.length() < 300) {
-			code += "0";
-		}
-		if (code.charAt(0) == ('0')) {
-			firstLetterIsLowercase = true;
-		}
-		return code;
-	}
-
-	public String asciiToValue(char letter) {
-		int ascii = letter;
-		if (ascii < 100) {
-			return ("0" + ascii);
-		}
-		return (ascii + "");
-	}
-
-	public void printStart() {
-		System.out.println("p = \t" + p);
-		System.out.println("q = \t" + q);
-		System.out.println("n = \t" + n);
-		System.out.println("ø(n) = \t" + phi);
-		System.out.println("e = \t" + e);
-		System.out.println("GCD(e,ø(n)) = " + e.gcd(phi));
-		System.out.println();
-	}
 }

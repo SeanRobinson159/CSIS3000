@@ -1,9 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
-
-import java.io.IOException;
 import java.math.BigInteger;
 
 
@@ -33,13 +30,14 @@ public class GUI {
 	 * Create the application.
 	 */
 	public GUI() {
-		initialize();
+		RSA rsa = new RSA();
+		initialize(rsa);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(RSA rsa) {
 		frmSeansRsaEncryption = new JFrame();
 		frmSeansRsaEncryption.setFont(new Font("Courier New", Font.PLAIN, 12));
 		frmSeansRsaEncryption.setIconImage(Toolkit.getDefaultToolkit()
@@ -79,28 +77,24 @@ public class GUI {
 		btnEncrypt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0){
 				
-				try {
-					RSA rsa = new RSA();
-					String message = inputTextField.getText();
+				RSA rsa = new RSA();
+				String message = inputTextField.getText();
 
-					String ascii = rsa.toascii(message);
+				String ascii = rsa.toascii(message);
 
-					String blocks = rsa.breakIntoBlocks(ascii);
+				String blocks = rsa.breakIntoBlocks(ascii);
 
-					System.out.println(blocks);
-					String code2 = rsa.encipher(new BigInteger(blocks));
-					System.out.println(code2);
-					tf_rsa.setText(code2);
+				System.out.println(blocks);
+				String code2 = rsa.encipher(new BigInteger(blocks));
+				System.out.println(code2);
+				tf_rsa.setText(code2);
 
-					String decipheredCode2 = rsa.decipher(new BigInteger(code2));
-					System.out.println(decipheredCode2);
+				String decipheredCode2 = rsa.decipher(new BigInteger(code2));
+				System.out.println(decipheredCode2);
 
-					// System.out.println(rsa.valueToAscii(decipheredCode2));
-					outputTextField.setText(rsa.valueToAscii(decipheredCode2));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				// System.out.println(rsa.valueToAscii(decipheredCode2));
+				outputTextField.setText(rsa.valueToAscii(decipheredCode2));
+				tf_publicKey.setText(rsa.getE()+","+rsa.getN());
 				
 			}
 		});
@@ -111,14 +105,9 @@ public class GUI {
 		tf_rsa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				try {
-					RSA rsa = new RSA();
-					String decipheredCode2 = rsa.decipher(new BigInteger(tf_rsa.getText()));
-					outputTextField.setText(rsa.valueToAscii(decipheredCode2));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				RSA rsa = new RSA();
+				String decipheredCode2 = rsa.decipher(new BigInteger(tf_rsa.getText()));
+				outputTextField.setText(rsa.valueToAscii(decipheredCode2));
 				
 			}
 		});
@@ -139,6 +128,14 @@ public class GUI {
 		JLabel lblPublicKey = new JLabel("Public Key");
 		lblPublicKey.setBounds(10, 330, 203, 16);
 		frmSeansRsaEncryption.getContentPane().add(lblPublicKey);
+		
+		JScrollBar scrollBar_publicKey = new JScrollBar();
+		scrollBar_publicKey.setOrientation(JScrollBar.HORIZONTAL);
+		scrollBar_publicKey.setBounds(10, 399, 865, 16);
+		 BoundedRangeModel brm = tf_publicKey.getHorizontalVisibility();
+		    scrollBar_publicKey.setModel(brm);
+		frmSeansRsaEncryption.getContentPane().add(scrollBar_publicKey);
+		
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmSeansRsaEncryption.setJMenuBar(menuBar);
@@ -165,6 +162,14 @@ public class GUI {
 		
 		JMenuItem mi_changePrivateKey = new JMenuItem("Change Private Key");
 		m_edit.add(mi_changePrivateKey);
-
+		
+		JMenuItem mntmGenerateNewKeys = new JMenuItem("Generate New Keys");
+		mntmGenerateNewKeys.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				rsa.generateNewKeys();
+				System.out.println(rsa.getE());
+			}
+		});
+		m_edit.add(mntmGenerateNewKeys);
 	}
 }
