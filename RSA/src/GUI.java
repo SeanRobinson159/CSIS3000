@@ -1,14 +1,13 @@
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
-
+import java.io.*;
 import java.math.BigInteger;
 
 public class GUI extends RSA {
 
 	private JFrame frmSeansRsaEncryption;
-	private JTextField tf_cipherText,tf_publicKey;
+	private JTextField tf_cipherText, tf_publicKeyE, tf_publicKeyN;
 
 	/**
 	 * Launch the application.
@@ -46,7 +45,7 @@ public class GUI extends RSA {
 		frmSeansRsaEncryption.setBackground(Color.BLACK);
 		frmSeansRsaEncryption.setTitle("Sean's RSA Encryption");
 		frmSeansRsaEncryption.setForeground(Color.BLACK);
-		frmSeansRsaEncryption.setBounds(100, 100, 901, 600);
+		frmSeansRsaEncryption.setBounds(100, 100, 901, 578);
 		frmSeansRsaEncryption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSeansRsaEncryption.getContentPane().setLayout(null);
 
@@ -56,19 +55,33 @@ public class GUI extends RSA {
 		lblInput.setBounds(10, 33, 350, 36);
 		frmSeansRsaEncryption.getContentPane().add(lblInput);
 
+		JLabel lblCharCount = new JLabel();
+		lblCharCount.setBounds(314, 225, 46, 14);
+		frmSeansRsaEncryption.getContentPane().add(lblCharCount);
+		
 		JTextArea inputTextField = new JTextArea();
+		inputTextField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				lblCharCount.setText(inputTextField.getText().toString().length()+"/100");
+			}
+		});
+		
+
+		
 		inputTextField.setBounds(10, 75, 350, 150);
 		inputTextField.setLineWrap(true);
 		inputTextField.setWrapStyleWord(true);
 		frmSeansRsaEncryption.getContentPane().add(inputTextField);
 
 		JTextArea outputTextField = new JTextArea();
+		outputTextField.setLineWrap(true);
+		outputTextField.setWrapStyleWord(true);
 		outputTextField.setBackground(Color.WHITE);
 		outputTextField.setEditable(false);
 		outputTextField.setBounds(525, 75, 350, 150);
 		frmSeansRsaEncryption.getContentPane().add(outputTextField);
 		outputTextField.setColumns(10);
-		outputTextField.setText("This is where the message will appear");
 
 		JLabel lblOutputText = new JLabel("Output Text");
 		lblOutputText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -87,8 +100,6 @@ public class GUI extends RSA {
 
 				String decipheredText = decipher(new BigInteger(cipherText));
 				outputTextField.setText(valueToAscii(decipheredText));
-				tf_publicKey.setText(getE() + "\n" + getN());
-
 			}
 		});
 		btnEncrypt.setBounds(392, 75, 100, 63);
@@ -102,14 +113,14 @@ public class GUI extends RSA {
 				String decipheredText = decipher(new BigInteger(tf_cipherText
 						.getText()));
 				outputTextField.setText(valueToAscii(decipheredText));
-				tf_publicKey.setText(getE() + "," + getN());
+
 			}
 		});
 		tf_cipherText.setBounds(10, 267, 865, 40);
 		frmSeansRsaEncryption.getContentPane().add(tf_cipherText);
 		tf_cipherText.setColumns(10);
 
-		JLabel lblCiphertext = new JLabel("CipherText");
+		JLabel lblCiphertext = new JLabel("Cipher Text:");
 		lblCiphertext.setBounds(10, 239, 100, 16);
 		frmSeansRsaEncryption.getContentPane().add(lblCiphertext);
 
@@ -120,22 +131,23 @@ public class GUI extends RSA {
 		scrollBar_cipherText.setModel(brm);
 		frmSeansRsaEncryption.getContentPane().add(scrollBar_cipherText);
 
-		tf_publicKey = new JTextField();
-		tf_publicKey.setEditable(false);
-		tf_publicKey.setBounds(10, 358, 865, 40);
-		frmSeansRsaEncryption.getContentPane().add(tf_publicKey);
-		tf_publicKey.setColumns(10);
+		tf_publicKeyE = new JTextField();
+		tf_publicKeyE.setEditable(false);
+		tf_publicKeyE.setBounds(10, 358, 865, 40);
+		frmSeansRsaEncryption.getContentPane().add(tf_publicKeyE);
+		tf_publicKeyE.setText(getE()+"");
+		tf_publicKeyE.setColumns(10);
 
-		JLabel lblPublicKey = new JLabel("Public Key");
+		JLabel lblPublicKey = new JLabel("Public Key E:");
 		lblPublicKey.setBounds(10, 330, 203, 16);
 		frmSeansRsaEncryption.getContentPane().add(lblPublicKey);
 
-		JScrollBar scrollBar_publicKey = new JScrollBar();
-		scrollBar_publicKey.setOrientation(JScrollBar.HORIZONTAL);
-		scrollBar_publicKey.setBounds(10, 399, 865, 16);
-		brm = tf_publicKey.getHorizontalVisibility();
-		scrollBar_publicKey.setModel(brm);
-		frmSeansRsaEncryption.getContentPane().add(scrollBar_publicKey);
+		JScrollBar scrollBar_publicKeyE = new JScrollBar();
+		scrollBar_publicKeyE.setOrientation(JScrollBar.HORIZONTAL);
+		scrollBar_publicKeyE.setBounds(10, 399, 865, 16);
+		brm = tf_publicKeyE.getHorizontalVisibility();
+		scrollBar_publicKeyE.setModel(brm);
+		frmSeansRsaEncryption.getContentPane().add(scrollBar_publicKeyE);
 
 		JButton btnDecrypt = new JButton("Decrypt");
 		btnDecrypt.addActionListener(new ActionListener() {
@@ -146,12 +158,34 @@ public class GUI extends RSA {
 				String decipheredText = decipher(new BigInteger(tf_cipherText
 						.getText()));
 				outputTextField.setText(valueToAscii(decipheredText));
-				tf_publicKey.setText(getE() + "," + getN());
 			}
 		});
 		btnDecrypt.setBounds(392, 162, 100, 63);
 		frmSeansRsaEncryption.getContentPane().add(btnDecrypt);
+		
+		JLabel lblPublicKeyN = new JLabel("Public Key N:");
+		lblPublicKeyN.setBounds(10, 426, 203, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblPublicKeyN);
+		
+		tf_publicKeyN = new JTextField();
+		tf_publicKeyN.setText(getN()+"");
+		tf_publicKeyN.setEditable(false);
+		tf_publicKeyN.setColumns(10);
+		tf_publicKeyN.setBounds(10, 454, 865, 40);
+		frmSeansRsaEncryption.getContentPane().add(tf_publicKeyN);
+		
+		JScrollBar scrollBar_publicKeyN = new JScrollBar();
+		scrollBar_publicKeyN.setOrientation(JScrollBar.HORIZONTAL);
+		scrollBar_publicKeyN.setBounds(10, 495, 865, 16);
+		brm = tf_publicKeyN.getHorizontalVisibility();
+		scrollBar_publicKeyN.setModel(brm);
+		frmSeansRsaEncryption.getContentPane().add(scrollBar_publicKeyN);
+		
 
+
+		
+		//-----------------------MenuBar---------------------//
+		
 		JMenuBar menuBar = new JMenuBar();
 		frmSeansRsaEncryption.setJMenuBar(menuBar);
 
@@ -159,6 +193,26 @@ public class GUI extends RSA {
 		menuBar.add(m_file);
 
 		JMenuItem mi_saveOutput = new JMenuItem("Save Output");
+		mi_saveOutput.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser saveFile = new JFileChooser();
+				saveFile.showSaveDialog(mi_saveOutput);
+				File file = saveFile.getSelectedFile();
+				try {
+					PrintStream writer = new PrintStream(file);
+					writer.println("Public Key E: " + getE());
+					writer.println("Public Key N: " + getN());
+					writer.println("Cipher Text:  " + tf_cipherText.getText());
+					writer.println("Output Text:  " + outputTextField.getText());
+
+					writer.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+		});
 		m_file.add(mi_saveOutput);
 
 		JMenuItem mi_exit = new JMenuItem("Exit");
@@ -173,9 +227,21 @@ public class GUI extends RSA {
 		menuBar.add(m_edit);
 
 		JMenuItem mi_changePublicKey = new JMenuItem("Change Public Key");
+		mi_changePublicKey.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFileChooser fc = new JFileChooser();
+				fc.showOpenDialog(mi_changePublicKey);
+			}
+		});
 		m_edit.add(mi_changePublicKey);
 
 		JMenuItem mi_changePrivateKey = new JMenuItem("Change Private Key");
+		mi_changePrivateKey.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fc = new JFileChooser();
+				fc.showOpenDialog(mi_changePublicKey);
+			}
+		});
 		m_edit.add(mi_changePrivateKey);
 
 		JMenuItem mntmGenerateNewKeys = new JMenuItem("Generate New Keys");
@@ -185,6 +251,8 @@ public class GUI extends RSA {
 				JOptionPane.showMessageDialog(null,
 						"The new keys were generated successfully",
 						"Generate New Keys", 1);
+				tf_publicKeyE.setText(getE()+"");
+				tf_publicKeyN.setText(getN()+"");
 			}
 		});
 		m_edit.add(mntmGenerateNewKeys);

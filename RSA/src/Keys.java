@@ -77,6 +77,22 @@ public class Keys {
 		System.out.println();
 	}
 
+	public BigInteger getN() {
+		return n;
+	}
+
+	public BigInteger getE() {
+		return e;
+	}
+
+	public BigInteger getInverse() {
+		return inverse;
+	}
+
+	public void setInverse(BigInteger inverse) {
+		this.inverse = inverse;
+	}
+
 	public BigInteger getP() {
 		return p;
 	}
@@ -93,14 +109,6 @@ public class Keys {
 		this.q = q;
 	}
 
-	public BigInteger getN() {
-		return n;
-	}
-
-	public void setN(BigInteger n) {
-		this.n = n;
-	}
-
 	public BigInteger getPhi() {
 		return phi;
 	}
@@ -109,20 +117,13 @@ public class Keys {
 		this.phi = phi;
 	}
 
-	public BigInteger getE() {
-		return e;
+	public void setN(BigInteger n) {
+		this.n = n;
 	}
 
 	public void setE(BigInteger e) {
 		this.e = e;
 	}
-
-	public BigInteger getInverse() {
-		return inverse;
-	}
-
-	public void setInverse(BigInteger inverse) {
-		this.inverse = inverse;
-	}
+	
 	
 }
