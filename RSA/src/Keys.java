@@ -61,6 +61,10 @@ public class Keys {
 		}
 		return (ascii + "");
 	}
+	public void setPublicKeys(BigInteger e, BigInteger n){
+		this.e = e;
+		this.n = n;
+	}
 
 	public void printStart() {
 		System.out.println("p = \t" + p);
@@ -119,6 +123,5 @@ public class Keys {
 	public void setInverse(BigInteger inverse) {
 		this.inverse = inverse;
 	}
-	
 	
 }

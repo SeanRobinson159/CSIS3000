@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
+
 import java.math.BigInteger;
 
 
@@ -57,6 +59,8 @@ public class GUI {
 
 		JTextArea inputTextField = new JTextArea();
 		inputTextField.setBounds(10, 75, 350, 150);
+		inputTextField.setLineWrap(true);
+		inputTextField.setWrapStyleWord(true);
 		frmSeansRsaEncryption.getContentPane().add(inputTextField);
 
 		JTextArea outputTextField = new JTextArea();
@@ -78,22 +82,15 @@ public class GUI {
 			public void actionPerformed(ActionEvent arg0){
 				
 				RSA rsa = new RSA();
+
 				String message = inputTextField.getText();
+				String plainText = rsa.toascii(message);
 
-				String ascii = rsa.toascii(message);
+				String cipherText = rsa.encipher(new BigInteger(plainText));
+				tf_rsa.setText(cipherText);
 
-				String blocks = rsa.breakIntoBlocks(ascii);
-
-				System.out.println(blocks);
-				String code2 = rsa.encipher(new BigInteger(blocks));
-				System.out.println(code2);
-				tf_rsa.setText(code2);
-
-				String decipheredCode2 = rsa.decipher(new BigInteger(code2));
-				System.out.println(decipheredCode2);
-
-				// System.out.println(rsa.valueToAscii(decipheredCode2));
-				outputTextField.setText(rsa.valueToAscii(decipheredCode2));
+				String decipheredText = rsa.decipher(new BigInteger(cipherText));
+				outputTextField.setText(rsa.valueToAscii(decipheredText));
 				tf_publicKey.setText(rsa.getE()+","+rsa.getN());
 				
 			}

@@ -10,7 +10,7 @@ public class RSA extends Keys {
 		Scanner input = new Scanner(System.in);
 		// System.out.println("Type a message that you would like to encode.");
 		// String message = input.nextLine();
-		String message = "Hello World";
+		String message = "hello world";
 		// test1(message);
 		encipherWithPublicKey(message);
 
@@ -40,15 +40,15 @@ public class RSA extends Keys {
 			BufferedReader reader = new BufferedReader(new FileReader(
 					"PublicKey.txt"));
 			String[] publicKey = reader.readLine().split(",");
-
-			RSA rsa = new RSA(new BigInteger(publicKey[0].toString()),
-					new BigInteger(publicKey[1].toString()));
-
 			reader = new BufferedReader(new FileReader("PrivateKey.txt"));
 			String[] privateKey = reader.readLine().split(",");
+
+			RSA rsa = new RSA(new BigInteger(publicKey[0].toString()),new BigInteger(publicKey[1].toString()));
+//			rsa.setE(new BigInteger(publicKey[0].toString()));
+//			rsa.setN(new BigInteger(publicKey[1].toString()));
 			rsa.setInverse(new BigInteger(privateKey[0].toString()));
 
-			rsa.printStart();
+			// rsa.printStart();
 			String plainText = rsa.toascii(message);
 			System.out.println("PlainText:\t" + plainText);
 
@@ -60,7 +60,6 @@ public class RSA extends Keys {
 
 			reader.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -77,13 +76,12 @@ public class RSA extends Keys {
 	}
 
 	public RSA(BigInteger publicKeyE, BigInteger publicKeyN) {
-		setP(BigInteger.probablePrime(BITLENGTH, new Random()));
-		setQ(BigInteger.probablePrime(BITLENGTH, new Random()));
-		setN(publicKeyN);
-		setE(publicKeyE);
-		setPhi(getP().subtract(BigInteger.ONE).multiply(
-				getQ().subtract(BigInteger.ONE)));
-		setInverse(getE().modInverse(getPhi()));
+//		setP(BigInteger.probablePrime(BITLENGTH, new Random()));
+//		setQ(BigInteger.probablePrime(BITLENGTH, new Random()));
+		setPublicKeys(publicKeyE, publicKeyN);
+//		setPhi(getP().subtract(BigInteger.ONE).multiply(
+//				getQ().subtract(BigInteger.ONE)));
+//		setInverse(getE().modInverse(getPhi()));
 	}
 
 	public void keysToFile(BigInteger e, BigInteger inverse, BigInteger n) {
@@ -91,12 +89,13 @@ public class RSA extends Keys {
 		try {
 			FileWriter writer = new FileWriter(new File("PublicKey.txt"));
 			writer.write(e.toString() + "," + n.toString());
+
 			FileWriter writer2 = new FileWriter(new File("PrivateKey.txt"));
 			writer2.write(inverse.toString() + "," + n.toString());
+
 			writer.close();
 			writer2.close();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
