@@ -5,16 +5,13 @@ import java.util.*;
 public class RSA extends Keys {
 
 	private final int BITLENGTH = 500;
+	private final static String privateLoc = "PrivateKey.txt";
+	private final static String publicLoc = "PublicKey.txt";
 
 	public static void main(String[] args) throws IOException {
-		Scanner input = new Scanner(System.in);
-		// System.out.println("Type a message that you would like to encode.");
-		// String message = input.nextLine();
 		String message = "hello world";
 		// test1(message);
 		encipherWithPublicKey(message);
-
-		input.close();
 	}
 
 	public static void test1(String message) {
@@ -40,10 +37,10 @@ public class RSA extends Keys {
 	public static void encipherWithPublicKey(String message) {
 
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(
-					"PublicKey.txt"));
+			BufferedReader reader = new BufferedReader(
+					new FileReader(publicLoc));
 			String[] publicKey = reader.readLine().split(",");
-			reader = new BufferedReader(new FileReader("PrivateKey.txt"));
+			reader = new BufferedReader(new FileReader(privateLoc));
 			String[] privateKey = reader.readLine().split(",");
 
 			RSA rsa = new RSA(new BigInteger(publicKey[0].toString()),
@@ -68,16 +65,15 @@ public class RSA extends Keys {
 	@SuppressWarnings("resource")
 	public void readKeys() {
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(
-					"PublicKey.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader(publicLoc));
 			String[] publicKey = reader.readLine().split(",");
-			reader = new BufferedReader(new FileReader("PrivateKey.txt"));
+			reader = new BufferedReader(new FileReader(privateLoc));
 			String[] privateKey = reader.readLine().split(",");
-			
-			setPublicKeys(new BigInteger(publicKey[0]), new BigInteger(publicKey[1]));
+
+			setPublicKeys(new BigInteger(publicKey[0]), new BigInteger(
+					publicKey[1]));
 			setInverse(new BigInteger(privateKey[0]));
-			
-			
+
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -103,10 +99,10 @@ public class RSA extends Keys {
 	public void keysToFile(BigInteger e, BigInteger inverse, BigInteger n) {
 
 		try {
-			FileWriter writer = new FileWriter(new File("PublicKey.txt"));
+			FileWriter writer = new FileWriter(new File(publicLoc));
 			writer.write(e.toString() + "," + n.toString());
 
-			FileWriter writer2 = new FileWriter(new File("PrivateKey.txt"));
+			FileWriter writer2 = new FileWriter(new File(privateLoc));
 			writer2.write(inverse.toString() + "," + n.toString());
 
 			writer.close();

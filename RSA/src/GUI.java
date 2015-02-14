@@ -56,7 +56,9 @@ public class GUI extends RSA {
 		frmSeansRsaEncryption.getContentPane().add(lblInput);
 
 		JLabel lblCharCount = new JLabel();
-		lblCharCount.setBounds(314, 225, 46, 14);
+		lblCharCount.setText("0/100");
+		lblCharCount.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCharCount.setBounds(286, 225, 74, 14);
 		frmSeansRsaEncryption.getContentPane().add(lblCharCount);
 		
 		JTextArea inputTextField = new JTextArea();
