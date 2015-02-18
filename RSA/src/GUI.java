@@ -94,6 +94,10 @@ public class GUI extends RSA {
 		JButton btnEncrypt = new JButton("Encrypt");
 		btnEncrypt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+//				setE(new BigInteger("86148730407763237843547742061985019807142821512709371873112288446663887448663969118408896568216383654241374946654156188189735774465537658022179672598803409019433651686340133348897499626375926363725725"));
+//				setN(new BigInteger("841895894136924755178127317930614901753490859659409516751447385829882714829561864710270531665245191027072572146521017874698711992384074865942647654781605169644552367356922747387275955355386106500960780002669670153047823977236824999030655729127114379754071982712719045225543499627938838027229670637711"));
+				
+				
 				String message = inputTextField.getText();
 				String plainText = toascii(message);
 
@@ -135,6 +139,12 @@ public class GUI extends RSA {
 
 		tf_publicKeyE = new JTextField();
 		tf_publicKeyE.setEditable(false);
+		tf_publicKeyE.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setE(new BigInteger(tf_publicKeyE.getText()));
+				JOptionPane.showMessageDialog(null, "Public Key E has been set");
+			}
+		});
 		tf_publicKeyE.setBounds(10, 358, 865, 40);
 		frmSeansRsaEncryption.getContentPane().add(tf_publicKeyE);
 		tf_publicKeyE.setText(getE()+"");
@@ -170,8 +180,15 @@ public class GUI extends RSA {
 		frmSeansRsaEncryption.getContentPane().add(lblPublicKeyN);
 		
 		tf_publicKeyN = new JTextField();
-		tf_publicKeyN.setText(getN()+"");
 		tf_publicKeyN.setEditable(false);
+		tf_publicKeyN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setN(new BigInteger(tf_publicKeyN.getText()));
+				JOptionPane.showMessageDialog(null, "Public Key N has been set");
+
+			}
+		});
+		tf_publicKeyN.setText(getN()+"");
 		tf_publicKeyN.setColumns(10);
 		tf_publicKeyN.setBounds(10, 454, 865, 40);
 		frmSeansRsaEncryption.getContentPane().add(tf_publicKeyN);
@@ -209,7 +226,6 @@ public class GUI extends RSA {
 
 					writer.close();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 
@@ -231,8 +247,8 @@ public class GUI extends RSA {
 		JMenuItem mi_changePublicKey = new JMenuItem("Change Public Key");
 		mi_changePublicKey.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFileChooser fc = new JFileChooser();
-				fc.showOpenDialog(mi_changePublicKey);
+				tf_publicKeyE.setEditable(true);
+				tf_publicKeyN.setEditable(true);
 			}
 		});
 		m_edit.add(mi_changePublicKey);
@@ -251,7 +267,7 @@ public class GUI extends RSA {
 			public void actionPerformed(ActionEvent arg0) {
 				generateNewKeys();
 				JOptionPane.showMessageDialog(null,
-						"The new keys were generated successfully",
+						"The new keys were generated successfully and saved to a file",
 						"Generate New Keys", 1);
 				tf_publicKeyE.setText(getE()+"");
 				tf_publicKeyN.setText(getN()+"");
