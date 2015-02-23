@@ -47,7 +47,7 @@ public class GUI extends RSA {
 		JLabel lblInput = new JLabel("Input Text");
 		lblInput.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInput.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblInput.setBounds(10, 33, 350, 36);
+		lblInput.setBounds(10, 33, 365, 36);
 		frmSeansRsaEncryption.getContentPane().add(lblInput);
 
 		JLabel lblCharCount = new JLabel();
@@ -69,21 +69,29 @@ public class GUI extends RSA {
 		inputTextField.setBounds(10, 75, 350, 150);
 		inputTextField.setLineWrap(true);
 		inputTextField.setWrapStyleWord(true);
-		frmSeansRsaEncryption.getContentPane().add(inputTextField);
+		JScrollPane scroll_inputText = new JScrollPane(inputTextField,
+				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll_inputText.setBounds(10, 75, 350, 150);
+		frmSeansRsaEncryption.getContentPane().add(scroll_inputText);
 
 		JTextArea outputTextField = new JTextArea();
 		outputTextField.setLineWrap(true);
 		outputTextField.setWrapStyleWord(true);
 		outputTextField.setBackground(Color.WHITE);
 		outputTextField.setEditable(false);
-		outputTextField.setBounds(525, 75, 350, 150);
-		frmSeansRsaEncryption.getContentPane().add(outputTextField);
-		outputTextField.setColumns(10);
+		outputTextField.setBounds(508, 75, 350, 150);
+		JScrollPane scroll_outputText = new JScrollPane(outputTextField,
+				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll_outputText.setBounds(508, 75, 350, 150);
+		frmSeansRsaEncryption.getContentPane().add(scroll_outputText);
+		// frmSeansRsaEncryption.getContentPane().add(outputTextField);
 
 		JLabel lblOutputText = new JLabel("Output Text");
 		lblOutputText.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOutputText.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblOutputText.setBounds(525, 33, 350, 36);
+		lblOutputText.setBounds(508, 33, 367, 36);
 		frmSeansRsaEncryption.getContentPane().add(lblOutputText);
 
 		// ------------------ Encrypt Button ----------------------------
@@ -190,6 +198,14 @@ public class GUI extends RSA {
 		lblPublicKeyNLength = new JLabel(" " + tf_publicKeyN.getText().length());
 		lblPublicKeyNLength.setBounds(91, 426, 61, 16);
 		frmSeansRsaEncryption.getContentPane().add(lblPublicKeyNLength);
+
+		// JScrollBar scrollBar_InputText = new JScrollBar();
+		// scrollBar_InputText.setBounds(360, 75, 17, 150);
+		// frmSeansRsaEncryption.getContentPane().add(scrollBar_InputText);
+
+		// JScrollBar scrollBar = new JScrollBar();
+		// scrollBar.setBounds(858, 75, 17, 150);
+		// frmSeansRsaEncryption.getContentPane().add(scrollBar);
 
 		// -----------------------MenuBar---------------------//
 
