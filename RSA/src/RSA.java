@@ -4,7 +4,7 @@ import java.util.*;
 
 public class RSA extends Keys {
 
-	private final int BITLENGTH = 500;
+	private final int BITLENGTH = 498;
 	private final static String privateLoc = "PrivateKey.txt";
 	private final static String publicLoc = "PublicKey.txt";
 

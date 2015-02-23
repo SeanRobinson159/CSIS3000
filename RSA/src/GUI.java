@@ -106,6 +106,8 @@ public class GUI extends RSA {
 
 				String decipheredText = decipher(new BigInteger(cipherText));
 				outputTextField.setText(valueToAscii(decipheredText));
+				updateLengths();
+				System.out.println(getN().toString().length());
 			}
 		});
 		btnEncrypt.setBounds(392, 75, 100, 63);
@@ -119,6 +121,7 @@ public class GUI extends RSA {
 				String decipheredText = decipher(new BigInteger(tf_cipherText
 						.getText()));
 				outputTextField.setText(valueToAscii(decipheredText));
+				updateLengths();
 
 			}
 		});
@@ -142,6 +145,7 @@ public class GUI extends RSA {
 		tf_publicKeyE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setE(new BigInteger(tf_publicKeyE.getText()));
+				updateLengths();
 				JOptionPane.showMessageDialog(null, "Public Key E has been set");
 			}
 		});
@@ -170,6 +174,7 @@ public class GUI extends RSA {
 				String decipheredText = decipher(new BigInteger(tf_cipherText
 						.getText()));
 				outputTextField.setText(valueToAscii(decipheredText));
+				updateLengths();
 			}
 		});
 		btnDecrypt.setBounds(392, 162, 100, 63);
@@ -199,6 +204,18 @@ public class GUI extends RSA {
 		brm = tf_publicKeyN.getHorizontalVisibility();
 		scrollBar_publicKeyN.setModel(brm);
 		frmSeansRsaEncryption.getContentPane().add(scrollBar_publicKeyN);
+		
+		JLabel lblCiphertextLength = new JLabel(" "+tf_cipherText.getText().length());
+		lblCiphertextLength.setBounds(91, 239, 61, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblCiphertextLength);
+		
+		JLabel lblPublicKeyELength = new JLabel(" "+tf_publicKeyE.getText().length());
+		lblPublicKeyELength.setBounds(91, 330, 61, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblPublicKeyELength);
+		
+		JLabel lblPublicKeyNLength = new JLabel(" "+tf_publicKeyN.getText().length());
+		lblPublicKeyNLength.setBounds(91, 426, 61, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblPublicKeyNLength);
 		
 
 
@@ -249,6 +266,7 @@ public class GUI extends RSA {
 			public void actionPerformed(ActionEvent arg0) {
 				tf_publicKeyE.setEditable(true);
 				tf_publicKeyN.setEditable(true);
+				updateLengths();
 			}
 		});
 		m_edit.add(mi_changePublicKey);
@@ -258,6 +276,7 @@ public class GUI extends RSA {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fc = new JFileChooser();
 				fc.showOpenDialog(mi_changePublicKey);
+				updateLengths();
 			}
 		});
 		m_edit.add(mi_changePrivateKey);
@@ -271,8 +290,23 @@ public class GUI extends RSA {
 						"Generate New Keys", 1);
 				tf_publicKeyE.setText(getE()+"");
 				tf_publicKeyN.setText(getN()+"");
+				updateLengths();
 			}
 		});
 		m_edit.add(mntmGenerateNewKeys);
+	}
+	
+	public void updateLengths(){
+		JLabel lblCiphertextLength = new JLabel(" "+tf_cipherText.getText().length());
+		lblCiphertextLength.setBounds(91, 239, 61, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblCiphertextLength);
+		
+		JLabel lblPublicKeyELength = new JLabel(" "+tf_publicKeyE.getText().length());
+		lblPublicKeyELength.setBounds(91, 330, 61, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblPublicKeyELength);
+		
+		JLabel lblPublicKeyNLength = new JLabel(" "+tf_publicKeyN.getText().length());
+		lblPublicKeyNLength.setBounds(91, 426, 61, 16);
+		frmSeansRsaEncryption.getContentPane().add(lblPublicKeyNLength);
 	}
 }
