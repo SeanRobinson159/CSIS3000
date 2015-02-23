@@ -11,8 +11,8 @@
 		<item value="650" key="DIALOG_WIDTH"/>
 		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
 		<item value="440" key="DIALOG_HEIGHT"/>
-		<item value="395" key="DIALOG_X_ORIGIN"/>
-		<item value="116" key="DIALOG_Y_ORIGIN"/>
+		<item value="1159" key="DIALOG_X_ORIGIN"/>
+		<item value="561" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
 		<item value="779" key="DIALOG_WIDTH"/>
@@ -24,7 +24,7 @@
 	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
 		<item value="766" key="DIALOG_WIDTH"/>
 		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
-		<item value="679" key="DIALOG_HEIGHT"/>
+		<item value="1106" key="DIALOG_HEIGHT"/>
 		<item value="337" key="DIALOG_X_ORIGIN"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>

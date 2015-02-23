@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
+
 import java.io.*;
 import java.math.BigInteger;
 
@@ -84,23 +86,12 @@ public class GUI extends RSA {
 		lblOutputText.setBounds(525, 33, 350, 36);
 		frmSeansRsaEncryption.getContentPane().add(lblOutputText);
 
+		// ------------------ Encrypt Button ----------------------------
+
 		JButton btnEncrypt = new JButton("Encrypt");
 		btnEncrypt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// setE(new
-				// BigInteger("86148730407763237843547742061985019807142821512709371873112288446663887448663969118408896568216383654241374946654156188189735774465537658022179672598803409019433651686340133348897499626375926363725725"));
-				// setN(new
-				// BigInteger("841895894136924755178127317930614901753490859659409516751447385829882714829561864710270531665245191027072572146521017874698711992384074865942647654781605169644552367356922747387275955355386106500960780002669670153047823977236824999030655729127114379754071982712719045225543499627938838027229670637711"));
-
-				String message = inputTextField.getText();
-				String plainText = toascii(message);
-
-				String cipherText = encipher(new BigInteger(plainText));
-				tf_cipherText.setText(cipherText);
-
-				String decipheredText = decipher(new BigInteger(cipherText));
-				outputTextField.setText(valueToAscii(decipheredText));
-				updateLengths();
+				encode(inputTextField, outputTextField);
 			}
 		});
 		btnEncrypt.setBounds(392, 75, 100, 63);
@@ -108,14 +99,8 @@ public class GUI extends RSA {
 
 		tf_cipherText = new JTextField();
 		tf_cipherText.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) { // CIPHER TEXT FIELD
-				toascii("");
-				inputTextField.setText("");
-				String decipheredText = decipher(new BigInteger(tf_cipherText
-						.getText()));
-				outputTextField.setText(valueToAscii(decipheredText));
-				updateLengths();
-
+			public void actionPerformed(ActionEvent arg0) {
+				decode(inputTextField, lblCharCount, outputTextField);
 			}
 		});
 		tf_cipherText.setBounds(10, 267, 865, 40);
@@ -162,13 +147,7 @@ public class GUI extends RSA {
 		JButton btnDecrypt = new JButton("Decrypt");
 		btnDecrypt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				toascii("");
-				inputTextField.setText("");
-
-				String decipheredText = decipher(new BigInteger(tf_cipherText
-						.getText()));
-				outputTextField.setText(valueToAscii(decipheredText));
-				updateLengths();
+				decode(inputTextField, lblCharCount, outputTextField);
 			}
 		});
 		btnDecrypt.setBounds(392, 162, 100, 63);
@@ -261,8 +240,9 @@ public class GUI extends RSA {
 				updateLengths();
 			}
 		});
-		
-		JCheckBoxMenuItem mi_ChangePublicKeyChkBx = new JCheckBoxMenuItem("Enable Public Key Change");
+
+		JCheckBoxMenuItem mi_ChangePublicKeyChkBx = new JCheckBoxMenuItem(
+				"Enable Public Key Change");
 		mi_ChangePublicKeyChkBx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tf_publicKeyE.setEditable(!tf_publicKeyE.isEditable());
@@ -276,18 +256,85 @@ public class GUI extends RSA {
 		JMenuItem mi_GenerateNewKeys = new JMenuItem("Generate New Keys");
 		mi_GenerateNewKeys.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				generateNewKeys();
-				JOptionPane
-						.showMessageDialog(
+				int choice = JOptionPane
+						.showConfirmDialog(
 								null,
-								"The new keys were generated successfully and saved to a file",
-								"Generate New Keys", 1);
-				tf_publicKeyE.setText(getE() + "");
-				tf_publicKeyN.setText(getN() + "");
-				updateLengths();
+								"Are you sure you want to generate new public and private keys?");
+				if (choice == 0) {
+					generateNewKeys();
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"The new keys were generated successfully and saved to a file",
+									"Generate New Keys", 1);
+					tf_publicKeyE.setText(getE() + "");
+					tf_publicKeyN.setText(getN() + "");
+					updateLengths();
+				}
+				else {
+					JOptionPane
+					.showMessageDialog(
+							null,
+							"Nothing was changed",
+							"Generate New Keys", 0);
+				}
 			}
 		});
 		m_edit.add(mi_GenerateNewKeys);
+	}
+
+	public void decode(JTextArea inputTextField, JLabel lblCharCount,
+			JTextArea outputTextField) {
+		toascii("");
+		inputTextField.setText("");
+		lblCharCount.setText("0/100");
+		String cipherText = tf_cipherText.getText();
+		String decipheredText = "", outputText = "";
+		while (cipherText.length() >= 300) {
+			String cutCipher = cipherText.substring(0, 300);
+			decipheredText = decipher(new BigInteger(cutCipher));
+			while (decipheredText.length() != 300) {
+				decipheredText = "0" + decipheredText;
+			}
+			outputText += valueToAscii(decipheredText);
+			cipherText = cipherText.substring(300, cipherText.length());
+		}
+		outputTextField.setText(outputText);
+		updateLengths();
+	}
+
+	public void encode(JTextArea inputTextField, JTextArea outputTextField) {
+		String message = inputTextField.getText();
+		String plainText, cipherText, decipheredText = "", outputText = "";
+		tf_cipherText.setText("");
+
+		if (message.length() <= 100) {
+			plainText = toascii(message);
+
+			cipherText = encipher(new BigInteger(plainText));
+			tf_cipherText.setText(cipherText);
+
+			decipheredText = decipher(new BigInteger(cipherText));
+			outputTextField.setText(valueToAscii(decipheredText));
+		} else {
+			while (message.length() > 0) {
+				while (message.length() < 100) {
+					message = message + " ";
+				}
+				plainText = toascii(message.substring(0, 100));
+
+				cipherText = encipher(new BigInteger(plainText));
+
+				decipheredText = decipher(new BigInteger(cipherText));
+				outputText += valueToAscii(decipheredText);
+
+				tf_cipherText.setText(tf_cipherText.getText() + cipherText);
+				outputTextField.setText(outputText);
+
+				message = message.substring(100, message.length());
+			}
+		}
+		updateLengths();
 	}
 
 	public void updateLengths() {
