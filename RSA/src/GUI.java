@@ -257,8 +257,7 @@ public class GUI extends RSA {
 		mi_GenerateNewKeys.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int choice = JOptionPane
-						.showConfirmDialog(
-								null,
+						.showConfirmDialog(null,
 								"Are you sure you want to generate new public and private keys?");
 				if (choice == 0) {
 					generateNewKeys();
@@ -270,12 +269,8 @@ public class GUI extends RSA {
 					tf_publicKeyE.setText(getE() + "");
 					tf_publicKeyN.setText(getN() + "");
 					updateLengths();
-				}
-				else {
-					JOptionPane
-					.showMessageDialog(
-							null,
-							"Nothing was changed",
+				} else {
+					JOptionPane.showMessageDialog(null, "Nothing was changed",
 							"Generate New Keys", 0);
 				}
 			}
@@ -293,7 +288,7 @@ public class GUI extends RSA {
 		while (cipherText.length() >= 300) {
 			String cutCipher = cipherText.substring(0, 300);
 			decipheredText = decipher(new BigInteger(cutCipher));
-			while (decipheredText.length() != 300) {
+			while (decipheredText.length() < 300) {
 				decipheredText = "0" + decipheredText;
 			}
 			outputText += valueToAscii(decipheredText);
@@ -324,6 +319,9 @@ public class GUI extends RSA {
 				plainText = toascii(message.substring(0, 100));
 
 				cipherText = encipher(new BigInteger(plainText));
+				while (cipherText.length() < 300) {
+					cipherText = "0" + cipherText;
+				}
 
 				decipheredText = decipher(new BigInteger(cipherText));
 				outputText += valueToAscii(decipheredText);
