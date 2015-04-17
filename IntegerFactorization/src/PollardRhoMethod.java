@@ -16,7 +16,8 @@ public class PollardRhoMethod {
 			x = f(x, n) % n;
 			y = f(f(y, n), n) % n;
 			d = gcd(Math.abs(x - y), n);
-			System.out.println("X: " + x + "\tY: " + y % n + "\t|X-Y|: "+Math.abs(x-y)+"\tD: " + d);
+			System.out.println("X: " + x + "\tY: " + y % n + "\t|X-Y|: "
+					+ Math.abs(x - y) + "\tD: " + d);
 		}
 		return d;
 	}
@@ -26,9 +27,8 @@ public class PollardRhoMethod {
 	}
 
 	public int gcd(int p, int q) {
-		if (q == 0) {
+		if (q == 0)
 			return p;
-		}
 		return gcd(q, p % q);
 	}
 
