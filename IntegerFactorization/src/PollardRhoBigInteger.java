@@ -14,12 +14,12 @@ public class PollardRhoBigInteger {
 	public static void main(String[] args) {
 		PollardRhoBigInteger p = new PollardRhoBigInteger();
 		double start = System.currentTimeMillis();
-		BigInteger factor = p.pollardRho(new BigInteger("10403")); 
+		BigInteger factor = p.factor(new BigInteger("10403")); 
 		double end = System.currentTimeMillis();
 		System.out.println("Factor: "+factor+"\nTime to Complete: "+(end-start)/1000+" s\nSteps: "+p.steps);
 	}
 
-	public BigInteger pollardRho(BigInteger n){
+	public BigInteger factor(BigInteger n){
 		BigInteger xi = new BigInteger("2");
 		BigInteger x2i = new BigInteger("2");
 		BigInteger s = BigInteger.ONE;
@@ -32,12 +32,12 @@ public class PollardRhoBigInteger {
 		return s;
 	}
 	
-	public BigInteger f(BigInteger x){
+	private BigInteger f(BigInteger x){
 		x = x.pow(2);
 		return x.add(BigInteger.ONE);
 		}
 	
-	public BigInteger gcd(BigInteger n, BigInteger m) {
+	private BigInteger gcd(BigInteger n, BigInteger m) {
 		if (m.equals(BigInteger.ZERO))
 			return n;
 		return gcd(m, n.mod(m));

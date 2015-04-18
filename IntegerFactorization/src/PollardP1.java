@@ -11,12 +11,12 @@ public class PollardP1 {
 	public static void main(String[] args) {
 		PollardP1 p = new PollardP1();
 		double start = System.currentTimeMillis();
-		System.out.println(p.pollardp1(10403));
+		System.out.println(p.factor(10403));
 		double end = System.currentTimeMillis();
 		System.out.println("Time to Complete: "+(end-start)/1000);
 
 	}
-	public int pollardp1(int n){
+	public int factor(int n){
 		int k = 0;
 		int rk = 0;
 		int two_k_factorial = 1;
@@ -30,7 +30,7 @@ public class PollardP1 {
 		return 0;
 	}
 	
-	public int gcd(int p, int q) {
+	private int gcd(int p, int q) {
 		if (q == 0)
 			return p;
 		return gcd(q, p % q);

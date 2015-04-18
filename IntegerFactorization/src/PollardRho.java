@@ -6,16 +6,16 @@
  *
  */
 
-public class PollardRhoMethod {
+public class PollardRho {
 	private final int c = 1;
 
 	public static void main(String[] args) {
-		PollardRhoMethod p = new PollardRhoMethod();
-		int factor = p.pollardRhoMethod(10403);
+		PollardRho p = new PollardRho();
+		int factor = p.factor(10403);
 		System.out.println(factor);
 	}
 
-	public int pollardRhoMethod(int n) {
+	public int factor(int n) {
 		int xi = 2;
 		int x2i = 2;
 		int d = 1;
@@ -29,11 +29,11 @@ public class PollardRhoMethod {
 		return d;
 	}
 
-	public int f(int x) {
+	private int f(int x) {
 		return (int)Math.pow(x, 2) + c;
 	}
 
-	public int gcd(int p, int q) {
+	private int gcd(int p, int q) {
 		if (q == 0)
 			return p;
 		return gcd(q, p % q);
