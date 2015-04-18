@@ -1,11 +1,22 @@
+/**
+ * 
+ * @author Sean Robinson
+ * @version April 14, 2015
+ * Pollard Rho algorithm (BigInteger).
+ *
+ */
+
 import java.math.BigInteger;
 
 public class PollardRhoBigInteger {
+	private int steps = 0;
 
 	public static void main(String[] args) {
 		PollardRhoBigInteger p = new PollardRhoBigInteger();
-		BigInteger factor = p.pollardRho(new BigInteger("897"));
-		System.out.println(factor);
+		double start = System.currentTimeMillis();
+		BigInteger factor = p.pollardRho(new BigInteger("10403")); 
+		double end = System.currentTimeMillis();
+		System.out.println("Factor: "+factor+"\nTime to Complete: "+(end-start)/1000+" s\nSteps: "+p.steps);
 	}
 
 	public BigInteger pollardRho(BigInteger n){
@@ -13,16 +24,21 @@ public class PollardRhoBigInteger {
 		BigInteger x2i = new BigInteger("2");
 		BigInteger s = BigInteger.ONE;
 		while(s.equals(BigInteger.ONE)){
-			xi = (xi.pow(2).add(BigInteger.ONE).mod(n));
-			x2i = (x2i.pow(2).add(BigInteger.ONE));
-			x2i = (x2i.pow(2).add(BigInteger.ONE).mod(n));
+			xi = f(xi).mod(n);
+			x2i = f(f(x2i)).mod(n);
 			s= gcd(xi.subtract(x2i).abs(), n);
+			steps++;
 		}
 		return s;
-
 	}
+	
+	public BigInteger f(BigInteger x){
+		x = x.pow(2);
+		return x.add(BigInteger.ONE);
+		}
+	
 	public BigInteger gcd(BigInteger n, BigInteger m) {
-		if (m.equals(0))
+		if (m.equals(BigInteger.ZERO))
 			return n;
 		return gcd(m, n.mod(m));
 

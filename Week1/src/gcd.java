@@ -12,7 +12,7 @@ public class gcd {
 	}
 	
 	public static BigInteger euclid (BigInteger n, BigInteger m) {
-		if(m.equals(0)){
+		if(m.equals(BigInteger.ZERO)){
 			return n;
 		}
 		else {
