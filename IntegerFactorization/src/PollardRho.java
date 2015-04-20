@@ -1,8 +1,7 @@
 /**
  * 
  * @author Sean Robinson
- * @version April 14, 2015
- * Pollard Rho algorithm.
+ * @version April 14, 2015 Pollard Rho algorithm.
  *
  */
 
@@ -11,7 +10,7 @@ public class PollardRho {
 
 	public static void main(String[] args) {
 		PollardRho p = new PollardRho();
-		int factor = p.factor(10403);
+		int factor = p.factor(5740932);
 		System.out.println(factor);
 	}
 
@@ -24,13 +23,12 @@ public class PollardRho {
 			xi = f(xi) % n;
 			x2i = f(f(x2i)) % n;
 			d = gcd(Math.abs(xi - x2i), n);
-//			System.out.println(xi + "\t" + x2i % n + "\t"+ Math.abs(xi - x2i) + "\t" + d);
 		}
 		return d;
 	}
 
 	private int f(int x) {
-		return (int)Math.pow(x, 2) + c;
+		return (int) Math.pow(x, 2) + c;
 	}
 
 	private int gcd(int p, int q) {
@@ -38,5 +36,4 @@ public class PollardRho {
 			return p;
 		return gcd(q, p % q);
 	}
-
 }
