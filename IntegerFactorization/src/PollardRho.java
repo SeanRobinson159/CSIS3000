@@ -24,7 +24,7 @@ public class PollardRho {
 			xi = f(xi) % n;
 			x2i = f(f(x2i)) % n;
 			d = gcd(Math.abs(xi - x2i), n);
-			System.out.println(xi + "\t" + x2i % n + "\t"+ Math.abs(xi - x2i) + "\t" + d);
+//			System.out.println(xi + "\t" + x2i % n + "\t"+ Math.abs(xi - x2i) + "\t" + d);
 		}
 		return d;
 	}
