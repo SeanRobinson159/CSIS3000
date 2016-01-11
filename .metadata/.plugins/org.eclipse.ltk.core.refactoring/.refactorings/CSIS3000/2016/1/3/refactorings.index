@@ -7,3 +7,6 @@
 1452542902774	Delete element
 1452548776129	Rename local variable 'allMasks'
 1452548806538	Rename local variable 'max'
+1452549889836	Move compilation unit
+1452550368527	Rename method 'checkIt'
+1452550658635	Rename method 'primePi'
