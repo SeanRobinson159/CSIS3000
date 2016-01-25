@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Week4.slowExponentiation&apos; to &apos;SlowExponentiation&apos;&#x0A;- Original project: &apos;CSIS3000&apos;&#x0A;- Original element: &apos;Week4.slowExponentiation&apos;&#x0A;- Renamed element: &apos;Week4.SlowExponentiation&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;slowExponentiation&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/Classwork&lt;Week4{slowExponentiation.java[slowExponentiation" matchStrategy="1" name="SlowExponentiation" qualified="false" references="true" similarDeclarations="false" stamp="1453752489241" textual="false" version="1.0"/>
+</session>
