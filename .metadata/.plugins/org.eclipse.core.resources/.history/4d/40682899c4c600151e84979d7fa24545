@@ -1,0 +1,10 @@
+package Week4;
+import java.util.*;
+
+public class pseudoPrime {
+
+	public static void main(String[] args) {
+
+	}
+
+}

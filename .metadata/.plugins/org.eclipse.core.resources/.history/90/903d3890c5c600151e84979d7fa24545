@@ -1,0 +1,39 @@
+package Week4;
+
+import java.util.*;
+
+public class pseudoPrime {
+
+	public static void main(String[] args) {
+		int listSize = 10000;
+		ArrayList<Integer> primes = primeList(listSize);
+		
+		System.out.println(primes.toString());
+		System.out.println(primes.size());
+	}
+
+	public static ArrayList<Integer> primeList(int n) {
+		BitSet sieve = new BitSet(n);
+		ArrayList<Integer> primes = new ArrayList<Integer>();
+		int last = (int) Math.sqrt(n);
+
+		sieve.set(2, size, true); // Set all of them to true
+
+		for (int i = 2; i <= last; i++) {
+			if (sieve.get(i)) {
+				for (int j = 2 * i; j < size; j += i) {
+					sieve.clear(j);
+				}
+			}
+		}
+
+		for (int i = 2; i < n; i++) {
+			if (sieve.get(i)) {
+				primes.add(i);
+			}
+		}
+
+		return primes;
+	}
+
+}
