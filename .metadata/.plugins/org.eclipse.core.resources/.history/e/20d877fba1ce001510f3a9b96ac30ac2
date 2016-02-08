@@ -1,0 +1,41 @@
+package Week6;
+
+import java.math.BigInteger;
+import java.util.Random;
+
+public class BigIntegerTest {
+
+	public static void main(String[] args) {
+		BigInteger one = BigInteger.ONE;
+		BigInteger p;
+		BigInteger q;
+		BigInteger n;
+		BigInteger phiOfN;
+		BigInteger e;
+		BigInteger d; // Private exponent
+
+		p = randomPrime(301);
+		q = randomPrime(300);
+
+		System.out.println("p = " + p);
+		System.out.println("q = " + q);
+
+	}
+
+	public static BigInteger multiply(BigInteger a, BigInteger b) {
+		return a.multiply(b);
+	}
+
+	public static BigInteger randomBigInteger(int numberOfDigits) {
+		Random random = new Random();
+		// if we know the number of decimal digits, how many bits are required?
+		int length = (int) (3.32 * (double) numberOfDigits);
+		return new BigInteger(length, random);
+	}
+
+	public static BigInteger randomPrime(int numberOfDigits) {
+		BigInteger randomBigInt = randomBigInteger(numberOfDigits);
+		return randomBigInt.nextProbablePrime();
+	}
+
+}

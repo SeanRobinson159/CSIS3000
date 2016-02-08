@@ -1,0 +1,25 @@
+package Week6;
+
+import java.math.BigInteger;
+
+public class BigIntegerTest {
+
+	public static void main(String[] args) {
+		BigInteger one = BigInteger.ONE;
+		BigInteger p;
+		BigInteger q;
+		BigInteger n;
+		BigInteger phiOfN;
+		BigInteger e;
+		BigInteger d; //Private exponent
+		
+		p = randomPrime(301);
+		q = randomPrime(300);
+
+	}
+	
+	public static BigInteger multiply (BigInteger a, BigInteger b){
+		return a.multiply(b);
+	}
+
+}
