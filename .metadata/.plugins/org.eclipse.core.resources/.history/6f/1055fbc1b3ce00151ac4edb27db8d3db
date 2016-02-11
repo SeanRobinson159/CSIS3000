@@ -1,0 +1,6 @@
+package interfaces;
+
+interface IPublicKey {
+	public int e;
+	public int n;
+}

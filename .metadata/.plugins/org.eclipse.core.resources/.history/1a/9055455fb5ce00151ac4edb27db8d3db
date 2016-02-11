@@ -1,0 +1,8 @@
+package interfaces;
+
+import java.math.BigInteger;
+
+public abstract class IPrivateKey {
+	BigInteger D;
+	BigInteger N;
+}
