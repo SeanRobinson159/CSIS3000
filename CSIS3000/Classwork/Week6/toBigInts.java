@@ -16,18 +16,42 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class twoBigInts {
+public class toBigInts {
 
 	public static void main(String[] args) {
 		
 		String s = fileToString("./cs-description.txt");
 		ArrayList<String> sBlocks = toStringBlocks(s);
-
-		System.out.println(sBlocks.toString());
-
+		
+		System.out.println(sBlocks);
 		ArrayList<BigInteger> plainText = toBigIntegerBlocks(sBlocks);
+		System.out.println(plainText.get(5).toString().length());
+		ArrayList<BigInteger> cipherText = encrypt(plainText);
+		ArrayList<BigInteger> decipherText = decrypt(cipherText);
+		stringToFile(decipherText, "./cs-description2.txt");
+
 	}
 
+
+
+	public static ArrayList<BigInteger> encrypt(ArrayList<BigInteger> plainText) {
+		
+		return null;
+	}
+	
+	// Check your work: The result should be exactly the same as the plaintext.
+	public static ArrayList<BigInteger> decrypt(ArrayList<BigInteger> cipherText) {
+		return null;
+	}
+	
+	public static ArrayList<BigInteger> unPaddedAscii(){
+		return null;
+	}
+	
+	public static ArrayList<String> plainTextToStringBlocks(){
+		return null;
+	}
+	
 	private static String fileToString(String filePath) {
 		String str = null;
 		try {
@@ -38,6 +62,10 @@ public class twoBigInts {
 		return str;
 	}
 
+	private static void stringToFile(ArrayList<BigInteger> decipherText, String url) {
+		
+	}
+	
 	// Parse a string into 200 character substrings
 	// Beware of the indices on substring
 	public static ArrayList<String> toStringBlocks(String str) {
@@ -53,7 +81,19 @@ public class twoBigInts {
 
 	// Convert each substring of length 200 to a BigInteger of length 600.
 	public static ArrayList<BigInteger> toBigIntegerBlocks(ArrayList<String> sBlocks) {
-		return null;
+		ArrayList<BigInteger> bigIntegerBlocks = new ArrayList<BigInteger>();
+		
+		for(String block: sBlocks){
+			String integerBlock = "";
+			char[] sBlockChar = block.toCharArray();
+			for(int i = 0; i < sBlockChar.length; i++){
+				int asciiChar = sBlockChar[i];
+				integerBlock += asciiChar + 100;
+			}
+			bigIntegerBlocks.add(new BigInteger(integerBlock));
+		}
+		
+		return bigIntegerBlocks;
 	}
 
 	public static BigInteger multiply(BigInteger a, BigInteger b) {

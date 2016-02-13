@@ -11,7 +11,7 @@ public class BigIntegerTest {
 		BigInteger q;
 		BigInteger n;
 		BigInteger phiOfN;
-		BigInteger e;
+		BigInteger e = new BigInteger("65537");
 		BigInteger d; // Private exponent
 
 		int firstThree = 0;
@@ -31,6 +31,11 @@ public class BigIntegerTest {
 		System.out.println("n = " + n); // N needs to be exactly 600 digits!
 		System.out.println("Length(n) = " + lengthOfN);
 		System.out.println("FirstThree = " + firstThree);
+		
+		
+		
+		
+		
 	}
 
 	public static BigInteger multiply(BigInteger a, BigInteger b) {
@@ -47,6 +52,14 @@ public class BigIntegerTest {
 	public static BigInteger randomPrime(int numberOfDigits) {
 		BigInteger randomBigInt = randomBigInteger(numberOfDigits);
 		return randomBigInt.nextProbablePrime();
+	}
+	
+	public static BigInteger euclid(BigInteger n, BigInteger m) {
+		if (m.equals(BigInteger.ZERO)) {
+			return n;
+		} else {
+			return euclid(m.abs(), n.abs().mod(m.abs()));
+		}
 	}
 
 }
