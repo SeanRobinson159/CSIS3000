@@ -8,7 +8,6 @@
 
 package Week6;
 
-import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
@@ -87,13 +86,18 @@ public class toBigInts {
 			String integerBlock = "";
 			char[] sBlockChar = block.toCharArray();
 			for(int i = 0; i < sBlockChar.length; i++){
-				int asciiChar = sBlockChar[i];
-				integerBlock += asciiChar + 100;
+				integerBlock += toPaddedAscii(sBlockChar[i]);
 			}
 			bigIntegerBlocks.add(new BigInteger(integerBlock));
 		}
 		
 		return bigIntegerBlocks;
+	}
+	
+	public static int toPaddedAscii(char c){
+		int asciiChar = c;
+		asciiChar += 100;
+		return asciiChar;
 	}
 
 	public static BigInteger multiply(BigInteger a, BigInteger b) {
