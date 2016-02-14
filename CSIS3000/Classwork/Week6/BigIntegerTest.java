@@ -32,10 +32,6 @@ public class BigIntegerTest {
 		System.out.println("Length(n) = " + lengthOfN);
 		System.out.println("FirstThree = " + firstThree);
 		
-		
-		
-		
-		
 	}
 
 	public static BigInteger multiply(BigInteger a, BigInteger b) {
