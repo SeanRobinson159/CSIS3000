@@ -4,14 +4,15 @@ import java.util.*;
 
 public class ErathosthenesesPrimes {
 	public static void main(String[] args) {
-		int N = 100;
+		int[] nArray = { 1000, 10000, 100000, 1000000, 10000000 };
+		for (int N : nArray) {
+			long startTime = System.nanoTime();
+			System.out.println(checkIt(N));
+			long endTime = System.nanoTime();
 
-		long startTime = System.nanoTime();
-		System.out.println(checkIt(N));
-		long endTime = System.nanoTime();
-
-		long duration = (endTime - startTime);
-		System.out.println("It took " + duration / 1000000 + "ms to complete.");
+			long duration = (endTime - startTime);
+			System.out.println("It took " + duration / 1000000 + "ms to complete.");
+		}
 	}
 
 	public static int checkIt(int N) {
