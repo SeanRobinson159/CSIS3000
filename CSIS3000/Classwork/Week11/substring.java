@@ -7,16 +7,18 @@ import java.nio.file.Paths;
 /*
  * Naive substring search
  * Performance is not bad for English text
- * Terrible for DNA and strings with small Alphabets
+ * Terrible for DNA and strings with small alphabets
+ * Worst case complexity is O(nm). For English text, the complexity is closer to O(n).
  */
 
 public class substring {
 
 	public static void main(String[] args) {
 		String textToSearchIn = fileToString("./awmt.txt");
-		String pattern = "scientists";
+		String pattern = "scientist";
 		
-		System.out.println(textToSearchIn);
+		System.out.println("The word " + pattern + " first occurs at index: "
+				+ search(pattern, textToSearchIn));
 	}
 
 	private static String fileToString(String filePath) {
@@ -28,6 +30,25 @@ public class substring {
 			return str;
 		}
 		return str;
+	}
+
+	// Return the first occurrence of the index of the pattern
+	public static int search(String pattern, String textToSearchIn) {
+		int patternLength = pattern.length();
+		int textToSearchInLength = textToSearchIn.length();
+		int j;
+
+		for (int i = 0; i <= (textToSearchInLength - patternLength); i++) {
+			for (j = 0; j < patternLength; j++) {
+				if (textToSearchIn.charAt(i + j) != pattern.charAt(j)) {
+					break;
+				}
+			}
+			if (j == patternLength) {
+				return i;
+			}
+		}
+		return Integer.MIN_VALUE;
 	}
 
 }
