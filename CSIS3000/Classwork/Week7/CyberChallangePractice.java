@@ -29,7 +29,7 @@ public class CyberChallangePractice {
 			"642847995105235794598226990200538905371094720607687227026541712928596518398897426602668416217800229134915673335179937439871030465861567057141301720531339115161184118724586412210219607813233023385086806080742627666144218599511532630210220245791203018131255589973824464144946616333891787737891979786761");
 	private static BigInteger n = p.multiply(q);
 	private static BigInteger phiOfN = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
-	private static BigInteger e = new BigInteger("65537"); // Public exponent
+	private static BigInteger e = BigInteger.valueOf(65537); // Public exponent
 	private static BigInteger d = e.modInverse(phiOfN); // Private exponent
 
 	public static void main(String[] args) {
