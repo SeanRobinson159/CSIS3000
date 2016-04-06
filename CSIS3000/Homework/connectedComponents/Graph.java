@@ -13,6 +13,7 @@ public class Graph {
 
 	public Graph(ArrayList<Node> nodes) {
 		this.nodes = nodes;
+		this.connectedComponents = new ArrayList<ConnectedComponent>();
 	}
 
 	public boolean Scan() {

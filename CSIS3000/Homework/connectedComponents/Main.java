@@ -11,10 +11,11 @@ class Main {
 		graph = makeAGraph();
 		if (graph.Scan()) {
 			for (ConnectedComponent connectedComponent : graph.connectedComponents) {
+				System.out.print("Nodes: ");
 				for (Node node : connectedComponent.connectedNodes) {
 					System.out.print(node.name);
 				}
-				System.out.println();
+				System.out.println(" are connected.");
 			}
 		}
 	}
