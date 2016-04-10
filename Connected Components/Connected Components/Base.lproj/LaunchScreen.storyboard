@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +16,72 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jhs-ev-BFp">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem image="AddNode" id="0eA-QR-gfn" userLabel="Add"/>
+                                    <barButtonItem image="RemoveNode" style="plain" id="Qk6-RB-uJT" userLabel="Remove"/>
+                                    <barButtonItem image="Link" id="Um9-dc-gtL" userLabel="Link"/>
+                                    <barButtonItem image="SearchGraph" id="e09-bX-0Vh"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Mtq-4c-AyL"/>
+                                    <barButtonItem systemItem="trash" id="umq-9l-jPj"/>
+                                </items>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jnq-kI-fCs" userLabel="StatusBarView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bp9-Np-rY4" userLabel="Drawing Board">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected Components in a Graph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHb-ld-teW">
+                                        <rect key="frame" x="125" y="50" width="351" height="21"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sean Robinson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rId-aM-heA">
+                                        <rect key="frame" x="225" y="96" width="151" height="21"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons from The Noun Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDQ-RE-3Nb">
+                                        <rect key="frame" x="149" y="465" width="302" height="21"/>
+                                        <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="VHb-ld-teW" firstAttribute="centerX" secondItem="bp9-Np-rY4" secondAttribute="centerX" id="I4l-ss-WYI"/>
+                                    <constraint firstItem="VHb-ld-teW" firstAttribute="top" secondItem="bp9-Np-rY4" secondAttribute="top" constant="50" id="eY6-uF-yQb"/>
+                                    <constraint firstItem="rId-aM-heA" firstAttribute="top" secondItem="VHb-ld-teW" secondAttribute="bottom" constant="25" id="fjA-hs-XWN"/>
+                                    <constraint firstItem="rId-aM-heA" firstAttribute="centerX" secondItem="bp9-Np-rY4" secondAttribute="centerX" id="omx-ZW-Fce"/>
+                                    <constraint firstItem="rDQ-RE-3Nb" firstAttribute="centerX" secondItem="bp9-Np-rY4" secondAttribute="centerX" id="qUP-jw-Rux"/>
+                                    <constraint firstAttribute="bottom" secondItem="rDQ-RE-3Nb" secondAttribute="bottom" constant="50" id="yvp-WC-KKH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bp9-Np-rY4" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="6yw-b9-Wie"/>
+                            <constraint firstItem="Jhs-ev-BFp" firstAttribute="trailing" secondItem="Jnq-kI-fCs" secondAttribute="trailing" id="AgW-1Q-cF1"/>
+                            <constraint firstAttribute="trailing" secondItem="Jnq-kI-fCs" secondAttribute="trailing" id="HOL-2V-jfj"/>
+                            <constraint firstItem="Jnq-kI-fCs" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="NIi-aK-0vs"/>
+                            <constraint firstItem="Jnq-kI-fCs" firstAttribute="bottom" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="TvL-SP-uMC"/>
+                            <constraint firstItem="Jhs-ev-BFp" firstAttribute="leading" secondItem="Jnq-kI-fCs" secondAttribute="leading" id="VUa-wX-u82"/>
+                            <constraint firstItem="bp9-Np-rY4" firstAttribute="trailing" secondItem="Jhs-ev-BFp" secondAttribute="trailing" id="XVi-Uc-zwc"/>
+                            <constraint firstItem="Jnq-kI-fCs" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="aZz-uh-dre"/>
+                            <constraint firstItem="Jhs-ev-BFp" firstAttribute="top" secondItem="Jnq-kI-fCs" secondAttribute="bottom" id="fp2-Ge-0aV"/>
+                            <constraint firstItem="bp9-Np-rY4" firstAttribute="leading" secondItem="Jhs-ev-BFp" secondAttribute="leading" id="oOD-Gn-2WZ"/>
+                            <constraint firstItem="bp9-Np-rY4" firstAttribute="top" secondItem="Jhs-ev-BFp" secondAttribute="bottom" id="yjs-iC-k4r"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +89,10 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AddNode" width="40" height="40"/>
+        <image name="Link" width="40" height="40"/>
+        <image name="RemoveNode" width="40" height="40"/>
+        <image name="SearchGraph" width="49" height="40"/>
+    </resources>
 </document>

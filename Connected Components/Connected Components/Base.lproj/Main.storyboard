@@ -36,7 +36,7 @@
                                             <action selector="LinkTouched:" destination="BYZ-38-t0r" id="Def-DB-kF8"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Search Graph" id="1TD-bJ-kJQ">
+                                    <barButtonItem image="SearchGraph" id="1TD-bJ-kJQ">
                                         <connections>
                                             <action selector="SearchTouched:" destination="BYZ-38-t0r" id="wCh-76-tfL"/>
                                         </connections>
@@ -106,5 +106,6 @@
         <image name="AddNode" width="40" height="40"/>
         <image name="Link" width="40" height="40"/>
         <image name="RemoveNode" width="40" height="40"/>
+        <image name="SearchGraph" width="49" height="40"/>
     </resources>
 </document>

@@ -7,16 +7,16 @@ enum Action {
 class ViewController: UIViewController {
 	@IBOutlet weak var drawingBoard: UIView!
 	@IBOutlet weak var componentsLabel: UILabel!
-
+	
 	var currentAction: Action?
 	var graph = Graph()
 	var currentNode: NodeView?
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		currentAction = .AddNode
 	}
-
+	
 	@IBAction func AddNodeTouched(sender: UIBarButtonItem) {
 		currentAction = .AddNode
 	}
@@ -27,7 +27,13 @@ class ViewController: UIViewController {
 		currentAction = .Link
 	}
 	@IBAction func TrashTouched(sender: UIBarButtonItem) {
-		drawingBoard.subviews.forEach({ $0.removeFromSuperview() })
+		drawingBoard.subviews.forEach({ subview in
+			UIView.transitionWithView(subview, duration: 0.25, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+				subview.transform = CGAffineTransformScale(subview.transform, 0.1, 0.1)
+			}) { (finished) in
+				subview.removeFromSuperview()
+			}
+		})
 		self.currentNode = nil
 		self.graph = Graph()
 		self.currentAction = .AddNode
@@ -37,8 +43,9 @@ class ViewController: UIViewController {
 		graph.Scan()
 		componentsLabel.text = "\(graph.connectedComponents.count)"
 		graph.connectedComponents = []
+		graph.nodes.forEach { $0.isVisited = false }
 	}
-
+	
 	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		guard let currentAction = currentAction else { return }
 		for touch in touches {
@@ -53,37 +60,76 @@ class ViewController: UIViewController {
 			}
 		}
 	}
-
+	
 	func addNode(tapPoint: CGPoint) {
 		let node = Node(name: "\(graph.nodes.count)", nodePosition: tapPoint)
 		graph.nodes.append(node)
 		let nodeView = NodeView(frame: CGRect(origin: CGPointMake(tapPoint.x - 25, tapPoint.y - 25), size: CGSize(width: 50, height: 50)), node: node)
 		self.drawingBoard.addSubview(nodeView)
+		nodeView.layer.anchorPoint = CGPointMake(0.5, 0.5)
+		self.growShrinkAnimate(nodeView)
 	}
-
+	
+	func growShrinkAnimate(view: UIView) {
+		UIView.transitionWithView(view, duration: 0.25, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+			view.transform = CGAffineTransformScale(view.transform, 2.0, 2.0)
+		}) { finished in
+			UIView.transitionWithView(view, duration: 0.25, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+				view.transform = CGAffineTransformScale(view.transform, 0.5, 0.5)
+			}) { finished in
+				guard let nodeView = view as? NodeView else { return }
+				nodeView.showName()
+			}
+		}
+	}
+	
+	func shrink(view: UIView) {
+		UIView.transitionWithView(view, duration: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+			view.transform = CGAffineTransformScale(view.transform, 0.9, 0.9)
+		}) { finished in
+			guard let nodeView = view as? NodeView else { return }
+			nodeView.showName()
+		}
+	}
+	
+	func grow(view: UIView) {
+		UIView.transitionWithView(view, duration: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+			view.transform = CGAffineTransformScale(view.transform, 1.1, 1.1)
+		}) { finished in }
+	}
+	
 	func removeNode(tapPoint: CGPoint) {
-		checkIfNodeIsHit(tapPoint)?.removeFromSuperview()
+		guard let nodeToRemove = checkIfNodeIsHit(tapPoint) else { return }
+		UIView.transitionWithView(nodeToRemove, duration: 0.25, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+			nodeToRemove.transform = CGAffineTransformScale(nodeToRemove.transform, 0.1, 0.1)
+		}) { (finished) in
+			nodeToRemove.removeFromSuperview()
+		}
 	}
-
+	
 	func linkNodes(tapPoint: CGPoint) {
 		if currentNode == nil {
 			self.currentNode = checkIfNodeIsHit(tapPoint)
-			self.currentNode?.circle.lineWidth = 5
-			self.currentNode?.setNeedsDisplay()
+			guard let currentNode = self.currentNode else { return }
+			grow(currentNode)
 		} else {
 			if let nextNode = checkIfNodeIsHit(tapPoint) {
 				nextNode.node.ConnectsTo(currentNode!.node)
-
+				
 				let linkView = LinkView(frame: drawingBoard.bounds, nodeViewA: currentNode!, nodeViewB: nextNode)
+				linkView.alpha = 0
 				drawingBoard.insertSubview(linkView, atIndex: 0)
-
-				currentNode?.circle.lineWidth = 3
-				self.currentNode?.setNeedsDisplay()
+				
+				UIView.animateWithDuration(0.25, animations: {
+					linkView.alpha = 1
+				})
+				
+				shrink(self.currentNode!)
 				currentNode = nil
 			}
 		}
 	}
-
+	
 	func checkIfNodeIsHit(tapPoint: CGPoint) -> NodeView? {
 		for view in drawingBoard.subviews {
 			if view is NodeView {
