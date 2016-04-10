@@ -134,7 +134,7 @@ class ViewController: UIViewController {
 			if let nextNode = checkIfNodeIsHit(tapPoint) {
 				nextNode.node.ConnectsTo(currentNode!.node)
 				
-				let linkView = LinkView(frame: drawingBoard.bounds, nodeViewA: currentNode!, nodeViewB: nextNode)
+				let linkView = LinkView(nodeViewA: currentNode!, nodeViewB: nextNode)
 				linkView.alpha = 0
 				drawingBoard.insertSubview(linkView, atIndex: 0)
 				

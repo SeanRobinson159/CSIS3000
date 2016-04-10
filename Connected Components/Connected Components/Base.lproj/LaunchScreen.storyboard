@@ -49,8 +49,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons from The Noun Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDQ-RE-3Nb">
-                                        <rect key="frame" x="149" y="465" width="302" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Icons from The Noun Project Sounds from Joshua Fletcher" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="315" translatesAutoresizingMaskIntoConstraints="NO" id="rDQ-RE-3Nb">
+                                        <rect key="frame" x="146" y="466" width="310" height="41"/>
                                         <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                                     <constraint firstItem="rId-aM-heA" firstAttribute="top" secondItem="VHb-ld-teW" secondAttribute="bottom" constant="25" id="fjA-hs-XWN"/>
                                     <constraint firstItem="rId-aM-heA" firstAttribute="centerX" secondItem="bp9-Np-rY4" secondAttribute="centerX" id="omx-ZW-Fce"/>
                                     <constraint firstItem="rDQ-RE-3Nb" firstAttribute="centerX" secondItem="bp9-Np-rY4" secondAttribute="centerX" id="qUP-jw-Rux"/>
-                                    <constraint firstAttribute="bottom" secondItem="rDQ-RE-3Nb" secondAttribute="bottom" constant="50" id="yvp-WC-KKH"/>
+                                    <constraint firstAttribute="bottom" secondItem="rDQ-RE-3Nb" secondAttribute="bottom" constant="29" id="yvp-WC-KKH"/>
                                 </constraints>
                             </view>
                         </subviews>

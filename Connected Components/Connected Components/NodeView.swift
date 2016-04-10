@@ -8,6 +8,7 @@ class NodeView: UIView {
 	init(frame: CGRect, node: Node) {
 		super.init(frame: frame)
 		self.node = node
+		self.node.nodePosition = self.center
 		setupView()
 	}
 	
