@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142258831CBAF13000427D18 /* blip2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 142258821CBAF13000427D18 /* blip2.mp3 */; };
+		142258851CBAF47A00427D18 /* shlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 142258841CBAF47A00427D18 /* shlip.mp3 */; };
+		142258871CBAF9B900427D18 /* remove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 142258861CBAF9B900427D18 /* remove.mp3 */; };
 		14D503521CB99F2B005EF325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D503511CB99F2B005EF325 /* AppDelegate.swift */; };
 		14D503541CB99F2B005EF325 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D503531CB99F2B005EF325 /* ViewController.swift */; };
 		14D503571CB99F2B005EF325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D503551CB99F2B005EF325 /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142258821CBAF13000427D18 /* blip2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = blip2.mp3; sourceTree = "<group>"; };
+		142258841CBAF47A00427D18 /* shlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shlip.mp3; sourceTree = "<group>"; };
+		142258861CBAF9B900427D18 /* remove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = remove.mp3; sourceTree = "<group>"; };
 		14D5034E1CB99F2B005EF325 /* Connected Components.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Connected Components.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D503511CB99F2B005EF325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14D503531CB99F2B005EF325 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 				14D503581CB99F2B005EF325 /* Assets.xcassets */,
 				14D5035A1CB99F2B005EF325 /* LaunchScreen.storyboard */,
 				14D5035D1CB99F2B005EF325 /* Info.plist */,
+				142258821CBAF13000427D18 /* blip2.mp3 */,
+				142258841CBAF47A00427D18 /* shlip.mp3 */,
+				142258861CBAF9B900427D18 /* remove.mp3 */,
 			);
 			path = "Connected Components";
 			sourceTree = "<group>";
@@ -165,6 +174,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142258871CBAF9B900427D18 /* remove.mp3 in Resources */,
+				142258851CBAF47A00427D18 /* shlip.mp3 in Resources */,
+				142258831CBAF13000427D18 /* blip2.mp3 in Resources */,
 				14D5035C1CB99F2B005EF325 /* LaunchScreen.storyboard in Resources */,
 				14D503591CB99F2B005EF325 /* Assets.xcassets in Resources */,
 				14D503571CB99F2B005EF325 /* Main.storyboard in Resources */,
@@ -343,6 +355,7 @@
 				14D503621CB99F2B005EF325 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

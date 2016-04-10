@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 enum Action {
 	case AddNode, RemoveNode, Link
@@ -11,10 +12,25 @@ class ViewController: UIViewController {
 	var currentAction: Action?
 	var graph = Graph()
 	var currentNode: NodeView?
+	var blipSound: SystemSoundID?
+	var shlipSound: SystemSoundID?
+	var removeSound: SystemSoundID?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		currentAction = .AddNode
+		if let soundURL = NSBundle.mainBundle().URLForResource("blip2", withExtension: "mp3") {
+			self.blipSound = 0
+			AudioServicesCreateSystemSoundID(soundURL, &blipSound!)
+		}
+		if let soundURL = NSBundle.mainBundle().URLForResource("shlip", withExtension: "mp3") {
+			self.shlipSound = 1
+			AudioServicesCreateSystemSoundID(soundURL, &shlipSound!)
+		}
+		if let soundURL = NSBundle.mainBundle().URLForResource("remove", withExtension: "mp3") {
+			self.removeSound = 2
+			AudioServicesCreateSystemSoundID(soundURL, &removeSound!)
+		}
 	}
 	
 	@IBAction func AddNodeTouched(sender: UIBarButtonItem) {
@@ -34,6 +50,7 @@ class ViewController: UIViewController {
 				subview.removeFromSuperview()
 			}
 		})
+		AudioServicesPlaySystemSound(removeSound!)
 		self.currentNode = nil
 		self.graph = Graph()
 		self.currentAction = .AddNode
@@ -68,6 +85,7 @@ class ViewController: UIViewController {
 		self.drawingBoard.addSubview(nodeView)
 		nodeView.layer.anchorPoint = CGPointMake(0.5, 0.5)
 		self.growShrinkAnimate(nodeView)
+		AudioServicesPlaySystemSound(blipSound!)
 	}
 	
 	func growShrinkAnimate(view: UIView) {
@@ -126,6 +144,7 @@ class ViewController: UIViewController {
 				
 				shrink(self.currentNode!)
 				currentNode = nil
+				AudioServicesPlaySystemSound(shlipSound!)
 			}
 		}
 	}
