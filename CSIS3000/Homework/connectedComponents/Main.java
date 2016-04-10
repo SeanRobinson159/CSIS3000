@@ -2,6 +2,11 @@ package connectedComponents;
 
 import java.awt.Point;
 
+// Discuss algorithm and its complexity.
+// Implement algorithm.
+// Walk through code and explain it.
+
+
 class Main {
 
 	private static Graph graph;
